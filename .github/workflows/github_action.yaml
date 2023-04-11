@@ -36,7 +36,7 @@ jobs:
       uses: cicirello/jacoco-badge-generator@v2
       with:
           generate-branches-badge: true
-          jacoco-csv-file: devop_dataframe /target/site/jacoco/jacoco.csv
+          jacoco-csv-file: devop_dataframe/target/site/jacoco/jacoco.csv
           badges-directory: .github/badges
 
     - name: Log coverage percentage
