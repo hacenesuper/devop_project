@@ -15,4 +15,26 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+  <build>
+  <plugins>
+   <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.8.6</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <excludes>
+                        <exclude>**/*Main.class</exclude>
+                    </excludes>
+                </configuration>
+   </plugin>
+  <build>
+  <plugins>
 </project>
