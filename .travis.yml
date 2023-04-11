@@ -1,0 +1,6 @@
+langague: java
+
+jdk: openjdk8
+
+script: mvn clean verify
+ 
