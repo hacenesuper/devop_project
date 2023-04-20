@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>col.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">devop_dataframe</a> &gt; <a href="index.source.html" class="el_package">groupeseul</a> &gt; <span class="el_source">col.java</span></div><h1>col.java</h1><pre class="source lang-java linenums">package groupeseul;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class col &lt;VALUE extends Object&gt;{
+    private String label;
+    private String type;
+    private List&lt;VALUE&gt; values;
+
+
+    /**
+     * creation d'une colone dune liste de valeurs 
+     * @param label le titre de la colone 
+     * @param type le type des valeurs de la colone 
+     * @param values liste des valeurs de la colone 
+     */
+<span class="nc" id="L18">    public col(String label, String type, List&lt;VALUE&gt; values){</span>
+<span class="nc" id="L19">        this.label = label;</span>
+<span class="nc" id="L20">        this.type = type;</span>
+<span class="nc" id="L21">        this.values = values;</span>
+<span class="nc" id="L22">    }</span>
+
+    /**
+     * creation d'une colone vide 
+     * @param label le titre de la colone 
+     * @param type le type de la colone 
+     */
+<span class="nc" id="L29">    public col(String label, String type){</span>
+<span class="nc" id="L30">        this.label = label;</span>
+<span class="nc" id="L31">        this.type = type;</span>
+<span class="nc" id="L32">        this.values = new ArrayList&lt;VALUE&gt;();</span>
+<span class="nc" id="L33">    }</span>
+/**
+     * donne la taille de la colone 
+     * @return taille de la colone 
+     */
+    public int getsize(){
+<span class="nc" id="L39">        return this.values.size();</span>
+    }
+    
+    /**
+     * la methode donne le label de la colone 
+     * @return le label de la colone 
+     */
+    public String getLabel() {
+<span class="nc" id="L47">        return label;</span>
+    }
+    
+    /**
+     * la methode retourne le type de la colone 
+     * @return le ltype de la colone 
+     */
+    public String getType() {
+<span class="nc" id="L55">        return type;</span>
+    }
+    
+    /**
+     * This methode is used to get the values of a Column object
+     * @return une liste des valeurs presents dans la colone 
+     */
+    public List&lt;VALUE&gt; getValues() {
+<span class="nc" id="L63">        return values;</span>
+    }
+    /**
+     * This methode is used to test whether the Column contains a value
+     * @param v la valeur a virifier si elle est presente dans la colone 
+     * @return true si la valeur est presente , faux sinon 
+     */
+    public boolean present (VALUE v){
+<span class="nc" id="L71">        return values.contains(v);</span>
+        
+    }
+    
+    /**
+     * la methode ajoute une valeur a la colone 
+     * @param val la valeur a ajouter 
+     */
+    public void add(VALUE v){
+<span class="nc" id="L80">        this.values.add(v);</span>
+<span class="nc" id="L81">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>
