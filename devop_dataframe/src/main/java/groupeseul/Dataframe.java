@@ -143,4 +143,95 @@ public void afficher() throws BadArgumentException{
     afficherdev(0,getNbligne());
 }
 
+
+/**
+ * la methode donne un daraframe qui contiens les lignes selectioner 
+ * @param debut le debut de la ligne a selectioner 
+ * @param finla drniere ligne a selectioner 
+ * @return
+ */
+public Dataframe selectLigne(int debut ,int fin ){
+    Dataframe dataframe = new Dataframe();
+    for(col col : this.data)
+            dataframe.insertCol( new col(col.getLabel(), col.getType()) );
+
+        for(int i=debut; i<=fin; i++){
+            String[] row = this.getligne(i).toArray(new String[0]);
+            dataframe.insertligne(row);(row);
+        }
+return dataframe;
+}
+/**
+ * la methode selectionne une partie des colonne du dataframe 
+ * @param l la liste des labels a selectioner 
+ * @return un nouveau dataframe qui contiens les colonne selectioner a partir des labels passer en parametre  
+ */
+public Dataframe selectCol(ArrayList<String> l){
+    Dataframe dataframe = new Dataframe();
+    for(String label : l){
+        col col = this.getcol(label);
+        dataframe.insertCol(col);
+    }
+    dataframe.nbligne = dataframe.data.get(0).getsize();
+
+return dataframe;
+}
+
+/**
+ * donne la ligne qui corespond a lindex index
+ * @param index lindex de la ligne a retourner 
+ * @return une liste des valeur a la ligne index 
+ */
+public List<String> getligne(int index) {
+    ArrayList<String> ligne = new ArrayList<String>();
+    for(col col : this.data)
+        ligne.add(col.getValues().get(index).toString());
+    
+    return ligne;}
+
+/**
+ * la methode donne la colonne qui a le label label
+ * @param label le label de la collone a retourner 
+ * @return une colone 
+ */
+public col getcol(String label)  {
+
+    col col = null;
+    for(col col1 : data)
+        if(col.getLabel().equals(label))
+        col = col1;
+        
+        return col;
+    }
+/**
+ * ajoute une ligne au tadaframe 
+ * @param l la ligne a ajouter au dataframe 
+ */
+public void insertligne(String[] l) {
+        
+        for(int i=0; i<this.labels.size(); i++){
+            this.data.get(i).add(l[i]);
+        }
+        this.nbligne++;
+            
+    }
+    public void insertCol(col c) {
+       
+        data.add(c);
+        labels.add(c.getLabel());
+    }
+
+
+    public double sum(String label)  {
+      
+    }
+    public double min(String label) {
+       
+    }
+    public double max(String label) {
+      
+    }
+    public double mean(String label) {
+        
+    }
 }
