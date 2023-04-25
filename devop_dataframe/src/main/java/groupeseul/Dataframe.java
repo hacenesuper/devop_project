@@ -156,8 +156,8 @@ public Dataframe selectLigne(int debut ,int fin ){
             dataframe.insertCol( new col(col.getLabel(), col.getType()) );
 
         for(int i=debut; i<=fin; i++){
-            String[] row = this.getligne(i).toArray(new String[0]);
-            dataframe.insertligne(row);(row);
+            String[] ligne = this.getligne(i).toArray(new String[0]);
+            dataframe.insertligne(ligne);
         }
 return dataframe;
 }
@@ -215,6 +215,10 @@ public void insertligne(String[] l) {
         this.nbligne++;
             
     }
+    /**
+     * la methode insere une colone dans le dataframe 
+     * @param c la colone a inserer 
+     */
     public void insertCol(col c) {
        
         data.add(c);
@@ -222,16 +226,75 @@ public void insertligne(String[] l) {
     }
 
 
-    public double sum(String label)  {
-      
+    /**
+     * la methode retourne la somme des valeurs dune colonne dont le nom est donner en parametre 
+     * @param label le label de la colonne 
+     * @return la somme des valeurs present dans la colonne 
+     */
+    public double sum(String label) {
+      col c =getcol(label);
+      if( c.isnumeric()){
+        double sum = 0;
+        for(int i=0; i<c.getValues().size();i++)
+                sum += Double.parseDouble( c.getValues().get(i).toString() );
+    double res = Math.round(sum* 100.0) / 100.0;
+    return res;
+    }else {return 0;}
     }
+    /**
+     * la methode retourne la valeur minimum parmis les valeurs d'une colonne dont le nom est donner en parametre 
+     * @param label le label de la colonne 
+     * @return le minimum des valeurs present dans la colonne 
+     */
     public double min(String label) {
-       
-    }
+        col c =getcol(label);
+        if( c.isnumeric() ){
+            double min = Float.MAX_VALUE;
+            for(int i=0; i<c.getValues().size(); i++)
+                if (min > Float.parseFloat(c.getValues().get(i).toString()))
+                    min = Float.parseFloat( c.getValues().get(i).toString());
+          
+            double res = Math.round(min* 100.0) / 100.0;
+            return res;
+        }
+        else
+            return 0; 
+      }
+    /**
+     * la methode retourne la valeur maximum parmis les valeurs d'une colonne dont le nom est donner en parametre 
+     * @param label le label de la colonne 
+     * @return le maximum des valeurs present dans la colonne 
+     */
     public double max(String label) {
-      
+        col c =getcol(label);
+        if( c.isnumeric()){
+            double max = Float.MIN_VALUE;
+            for(int i=0; i<c.getValues().size(); i++)
+                if (max < Float.parseFloat(c.getValues().get(i).toString()))
+                  max = Float.parseFloat( c.getValues().get(i).toString() );
+           
+            double res = Math.round(max* 100.0) / 100.0;
+            return res;
+        }
+        else
+            return 0; 
     }
+    /**
+     * la methode retourne la moyenne des  valeurs numeric d'une colonne dont le nom est donner en parametre 
+     * @param label le label de la colonne 
+     * @return la moyenne des valeurs present dans la colonne 
+     */
     public double mean(String label) {
-        
+        col c =getcol(label);
+        if( c.isnumeric()){
+            double sum = 0;
+            for(int i=0; i<c.getValues().size(); i++)
+                    sum += Double.parseDouble( c.getValues().get(i).toString() );
+            
+            double res = Math.round(sum/c.getValues().size()* 100.0) / 100.0;
+            return res;
+        }
+        else
+            return 0;
     }
 }
