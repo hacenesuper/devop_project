@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Dataframe.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">devop_dataframe</a> &gt; <a href="index.source.html" class="el_package">groupeseul</a> &gt; <span class="el_source">Dataframe.java</span></div><h1>Dataframe.java</h1><pre class="source lang-java linenums">package groupeseul;
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Dataframe.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">devop_dataframe</a> &gt; <a href="index.source.html" class="el_package">groupeseul</a> &gt; <span class="el_source">Dataframe.java</span></div><h1>Dataframe.java</h1><pre class="source lang-java linenums">package groupeseul;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -59,7 +59,7 @@ public class Dataframe {
 <span class="fc" id="L59">            throw new BadArgumentException(&quot;le dataframe a une liste null&quot;);</span>
 <span class="fc bfc" id="L60" title="All 2 branches covered.">        else if( list.size() != size)</span>
 <span class="fc" id="L61">            throw new BadArgumentException(&quot;les colonne nont pas la meme taille &quot;);</span>
-    }     
+<span class="fc" id="L62">    }     </span>
       
 <span class="fc" id="L64">    data = new ArrayList&lt;col&gt;();</span>
 <span class="fc" id="L65">    labels = new ArrayList&lt;String&gt;();</span>
@@ -68,7 +68,7 @@ public class Dataframe {
 <span class="fc" id="L68">        type = type.substring(type.lastIndexOf('.') + 1);</span>
 <span class="fc" id="L69">        data.add(new col(colname,type,map.get(colname))); </span>
 <span class="fc" id="L70">        labels.add(colname);</span>
-    }
+<span class="fc" id="L71">    }</span>
 <span class="fc" id="L72">    nbligne = size;</span>
 <span class="fc" id="L73">    }</span>
  /**
@@ -95,8 +95,8 @@ public class Dataframe {
         
 <span class="fc" id="L96">        nbligne = data.get(0).getsize();</span>
      
-<span class="fc" id="L98"> </span>
-}
+ 
+<span class="fc" id="L99">}</span>
 /**
  * affiche le dataframe entre debut et fin 
  * @param debut la ligne ou comlmence laffichage 
@@ -185,7 +185,7 @@ public Dataframe selectCol(ArrayList&lt;String&gt; l){
 <span class="nc bnc" id="L185" title="All 2 branches missed.">    for(String label : l){</span>
 <span class="nc" id="L186">        col col = this.getcol(label);</span>
 <span class="nc" id="L187">        dataframe.insertCol(col);</span>
-    }
+<span class="nc" id="L188">    }</span>
 <span class="nc" id="L189">    dataframe.nbligne = dataframe.data.get(0).getsize();</span>
 
 <span class="nc" id="L191">return dataframe;</span>
