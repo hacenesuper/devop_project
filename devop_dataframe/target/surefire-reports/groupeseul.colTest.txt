@@ -1,8 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: groupeseul.colTest
 -------------------------------------------------------------------------------
-<<<<<<< HEAD
-Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.052 sec
-=======
-Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.023 sec
->>>>>>> c078960162011b9013b050408563403b994ffc8a
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 sec
