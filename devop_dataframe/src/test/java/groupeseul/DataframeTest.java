@@ -145,10 +145,11 @@ public class DataframeTest {
      * test selection 
      */
     @Test
-    public void testSelectionRow()  {
+    public void testSelectionligne()  {
         Dataframe d = students.selectLigne(0, 2);
         assertEquals(3, d.getNbligne());
     }
+    @Test
     public void testSelectioncol() throws Exception {
         ArrayList<String> list = new ArrayList<String>(Arrays.asList("Name","Age"));
         Dataframe d = oscars.selectCol(list);
