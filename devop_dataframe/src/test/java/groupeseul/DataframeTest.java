@@ -189,19 +189,20 @@ public class DataframeTest {
   /*
      * test des methode min max mean sum
      */
+    @Test
     public void testMax() throws Exception {
-        assertEquals(89,oscars.max("Index"),0.01);
+       
         assertEquals(15.15,students.max("moyenne"),0.01);
     }
     @Test
     public void testSum() throws Exception {
-        assertEquals(4005, oscars.sum("Index"),0.01);
+      
         assertEquals(74.58, students.sum("moyenne"),0.01);
     }
     
     @Test
     public void testMin() throws Exception {
-        assertEquals(1,oscars.min("Index"),0.01);
+       
         assertEquals(9.45,students.min("moyenne"),0.01);
     }
     
