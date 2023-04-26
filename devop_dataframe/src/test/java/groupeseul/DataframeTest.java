@@ -213,7 +213,7 @@ public class DataframeTest {
     @Test (expected = BadArgumentException.class)
     public void testMax2() throws Exception {
        
-        students.sum("prenom");
+        students.max("prenom");
     }
     @Test (expected = BadArgumentException.class)
     public void testSum2() throws Exception {
@@ -224,13 +224,13 @@ public class DataframeTest {
     @Test (expected = BadArgumentException.class)
     public void testMin2() throws Exception {
      
-        students.sum("prenom");
+        students.min("prenom");
     }
     
     @Test (expected = BadArgumentException.class)
     public void testMean2() throws Exception {
       
-        students.sum("prenom");
+        students.mean("prenom");
     }
     
    
