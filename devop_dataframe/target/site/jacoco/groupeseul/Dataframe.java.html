@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Dataframe.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">devop_dataframe</a> &gt; <a href="index.source.html" class="el_package">groupeseul</a> &gt; <span class="el_source">Dataframe.java</span></div><h1>Dataframe.java</h1><pre class="source lang-java linenums">package groupeseul;
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Dataframe.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">devop_dataframe</a> &gt; <a href="index.source.html" class="el_package">groupeseul</a> &gt; <span class="el_source">Dataframe.java</span></div><h1>Dataframe.java</h1><pre class="source lang-java linenums">package groupeseul;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -59,7 +59,7 @@ public class Dataframe {
 <span class="fc" id="L59">            throw new BadArgumentException(&quot;le dataframe a une liste null&quot;);</span>
 <span class="fc bfc" id="L60" title="All 2 branches covered.">        else if( list.size() != size)</span>
 <span class="fc" id="L61">            throw new BadArgumentException(&quot;les colonne nont pas la meme taille &quot;);</span>
-    }     
+<span class="fc" id="L62">    }     </span>
       
 <span class="fc" id="L64">    data = new ArrayList&lt;col&gt;();</span>
 <span class="fc" id="L65">    labels = new ArrayList&lt;String&gt;();</span>
@@ -68,7 +68,7 @@ public class Dataframe {
 <span class="fc" id="L68">        type = type.substring(type.lastIndexOf('.') + 1);</span>
 <span class="fc" id="L69">        data.add(new col(colname,type,map.get(colname))); </span>
 <span class="fc" id="L70">        labels.add(colname);</span>
-    }
+<span class="fc" id="L71">    }</span>
 <span class="fc" id="L72">    nbligne = size;</span>
 <span class="fc" id="L73">    }</span>
  /**
@@ -95,8 +95,8 @@ public class Dataframe {
         
 <span class="fc" id="L96">        nbligne = data.get(0).getsize();</span>
      
-<span class="fc" id="L98"> </span>
-}
+ 
+<span class="fc" id="L99">}</span>
 /**
  * affiche le dataframe entre debut et fin 
  * @param debut la ligne ou comlmence laffichage 
@@ -185,7 +185,7 @@ public Dataframe selectCol(ArrayList&lt;String&gt; l){
 <span class="nc bnc" id="L185" title="All 2 branches missed.">    for(String label : l){</span>
 <span class="nc" id="L186">        col col = this.getcol(label);</span>
 <span class="nc" id="L187">        dataframe.insertCol(col);</span>
-    }
+<span class="nc" id="L188">    }</span>
 <span class="nc" id="L189">    dataframe.nbligne = dataframe.data.get(0).getsize();</span>
 
 <span class="nc" id="L191">return dataframe;</span>
@@ -239,7 +239,27 @@ public void insertligne(String[] l) {
 <span class="fc" id="L239">        labels.add(c.getLabel());</span>
 <span class="fc" id="L240">    }</span>
 
-
+/**
+     * la methode retourne la valeur maximum parmis les valeurs d'une colonne dont le nom est donner en parametre 
+     * @param label le label de la colonne 
+     * @return le maximum des valeurs present dans la colonne 
+     * @throws BadArgumentException colone ne contien pas de valeur numeric&quot;
+     */
+    public double max(String label) throws BadArgumentException {
+<span class="nc" id="L249">        col c =getcol(label);</span>
+        Double res;
+<span class="nc bnc" id="L251" title="All 2 branches missed.">        if( c.isnumeric()){</span>
+<span class="nc" id="L252">            double max = Float.MIN_VALUE;</span>
+<span class="nc bnc" id="L253" title="All 2 branches missed.">            for(int i=0; i&lt;c.getValues().size(); i++)</span>
+<span class="nc bnc" id="L254" title="All 2 branches missed.">                if (max &lt; Float.parseFloat(c.getValues().get(i).toString()))</span>
+<span class="nc" id="L255">                  max = Float.parseFloat( c.getValues().get(i).toString() );</span>
+           
+<span class="nc" id="L257">            res = Math.round(max* 100.0) / 100.0;</span>
+<span class="nc" id="L258">            return res;</span>
+        }
+       else
+<span class="nc" id="L261">            throw new BadArgumentException(&quot;colone ne contien pas de valeur numeric&quot;);</span>
+    }
     /**
      * la methode retourne la somme des valeurs dune colonne dont le nom est donner en parametre 
      * @param label le label de la colonne 
@@ -247,15 +267,15 @@ public void insertligne(String[] l) {
      * @throws BadArgumentException colone ne contien pas de valeur numeric&quot;
      */
     public double sum(String label) throws BadArgumentException {
-<span class="fc" id="L250">      col c =getcol(label);</span>
-<span class="fc bfc" id="L251" title="All 2 branches covered.">      if( c.isnumeric()){</span>
-<span class="fc" id="L252">        double sum = 0;</span>
-<span class="fc bfc" id="L253" title="All 2 branches covered.">        for(int i=0; i&lt;c.getValues().size();i++)</span>
-<span class="fc" id="L254">                sum += Double.parseDouble( c.getValues().get(i).toString() );</span>
-<span class="fc" id="L255">    double res = Math.round(sum* 100.0) / 100.0;</span>
-<span class="fc" id="L256">    return res;</span>
+<span class="fc" id="L270">      col c =getcol(label);</span>
+<span class="fc bfc" id="L271" title="All 2 branches covered.">      if( c.isnumeric()){</span>
+<span class="fc" id="L272">        double sum = 0;</span>
+<span class="fc bfc" id="L273" title="All 2 branches covered.">        for(int i=0; i&lt;c.getValues().size();i++)</span>
+<span class="fc" id="L274">                sum += Double.parseDouble( c.getValues().get(i).toString() );</span>
+<span class="fc" id="L275">    double res = Math.round(sum* 100.0) / 100.0;</span>
+<span class="fc" id="L276">    return res;</span>
     }else 
-<span class="fc" id="L258">        throw new BadArgumentException(&quot;colone ne contien pas de valeur numeric&quot;);</span>
+<span class="fc" id="L278">        throw new BadArgumentException(&quot;colone ne contien pas de valeur numeric&quot;);</span>
     }
     /**
      * la methode retourne la valeur minimum parmis les valeurs d'une colonne dont le nom est donner en parametre 
@@ -264,40 +284,20 @@ public void insertligne(String[] l) {
      * @throws BadArgumentException colone ne contien pas de valeur numeric&quot;
      */
     public double min(String label) throws BadArgumentException {
-<span class="fc" id="L267">        col c =getcol(label);</span>
-<span class="pc bpc" id="L268" title="1 of 2 branches missed.">        if( c.isnumeric() ){</span>
-<span class="fc" id="L269">            double min = Float.MAX_VALUE;</span>
-<span class="fc bfc" id="L270" title="All 2 branches covered.">            for(int i=0; i&lt;c.getValues().size(); i++)</span>
-<span class="fc bfc" id="L271" title="All 2 branches covered.">                if (min &gt; Float.parseFloat(c.getValues().get(i).toString()))</span>
-<span class="fc" id="L272">                    min = Float.parseFloat( c.getValues().get(i).toString());</span>
+<span class="fc" id="L287">        col c =getcol(label);</span>
+<span class="pc bpc" id="L288" title="1 of 2 branches missed.">        if( c.isnumeric() ){</span>
+<span class="fc" id="L289">            double min = Float.MAX_VALUE;</span>
+<span class="fc bfc" id="L290" title="All 2 branches covered.">            for(int i=0; i&lt;c.getValues().size(); i++)</span>
+<span class="fc bfc" id="L291" title="All 2 branches covered.">                if (min &gt; Float.parseFloat(c.getValues().get(i).toString()))</span>
+<span class="fc" id="L292">                    min = Float.parseFloat( c.getValues().get(i).toString());</span>
           
-<span class="fc" id="L274">            double res = Math.round(min* 100.0) / 100.0;</span>
-<span class="fc" id="L275">            return res;</span>
+<span class="fc" id="L294">            double res = Math.round(min* 100.0) / 100.0;</span>
+<span class="fc" id="L295">            return res;</span>
         }
         else
-<span class="nc" id="L278">        throw new BadArgumentException(&quot;colone ne contien pas de valeur numeric&quot;); </span>
+<span class="nc" id="L298">        throw new BadArgumentException(&quot;colone ne contien pas de valeur numeric&quot;); </span>
       }
-    /**
-     * la methode retourne la valeur maximum parmis les valeurs d'une colonne dont le nom est donner en parametre 
-     * @param label le label de la colonne 
-     * @return le maximum des valeurs present dans la colonne 
-     * @throws BadArgumentException colone ne contien pas de valeur numeric&quot;
-     */
-    public double max(String label) throws BadArgumentException {
-<span class="nc" id="L287">        col c =getcol(label);</span>
-        Double res;
-<span class="nc bnc" id="L289" title="All 2 branches missed.">        if( c.isnumeric()){</span>
-<span class="nc" id="L290">            double max = Float.MIN_VALUE;</span>
-<span class="nc bnc" id="L291" title="All 2 branches missed.">            for(int i=0; i&lt;c.getValues().size(); i++)</span>
-<span class="nc bnc" id="L292" title="All 2 branches missed.">                if (max &lt; Float.parseFloat(c.getValues().get(i).toString()))</span>
-<span class="nc" id="L293">                  max = Float.parseFloat( c.getValues().get(i).toString() );</span>
-           
-<span class="nc" id="L295">            res = Math.round(max* 100.0) / 100.0;</span>
-<span class="nc" id="L296">            return res;</span>
-        }
-       else
-<span class="nc" id="L299">            throw new BadArgumentException(&quot;colone ne contien pas de valeur numeric&quot;);</span>
-    }
+    
     /**
      * la methode retourne la moyenne des  valeurs numeric d'une colonne dont le nom est donner en parametre 
      * @param label le label de la colonne 
