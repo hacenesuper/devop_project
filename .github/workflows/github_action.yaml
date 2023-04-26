@@ -75,7 +75,7 @@ jobs:
     run: |
           docker tag dataframe hacenesuper/dataframe:latest
           docker push hacenesuper/dataframe:latest          
-  # - name: Publish to GitHub Packages Apache Maven
-    # run: mvn deploy -s $GITHUB_WORKSPACE/settings.xml
-   #  env:
-     #    GITHUB_TOKEN: ${{ github.token }}
+  - name: Publish to GitHub Packages Apache Maven
+    run: mvn deploy -s $GITHUB_WORKSPACE/settings.xml
+    env:
+        GITHUB_TOKEN: ${{ github.token }}
