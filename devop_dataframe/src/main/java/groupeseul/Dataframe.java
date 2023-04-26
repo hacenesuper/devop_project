@@ -24,6 +24,10 @@ public class Dataframe {
     private List<col> data;
     private ArrayList<String> labels;
     private int nbligne ;
+    /**
+     * la methode donne le nobmre de ligne dans le dataframe 
+     * @return le nombre de ligne dans le dataframe 
+     */
     public int getNbligne() {
         return nbligne;
     }
@@ -157,7 +161,7 @@ public void afficher() throws BadArgumentException{
 /**
  * la methode donne un daraframe qui contiens les lignes selectioner 
  * @param debut le debut de la ligne a selectioner 
- * @param finla drniere ligne a selectioner 
+ * @param fin  la drniere ligne a selectioner 
  * @return
  */
 public Dataframe selectLigne(int debut ,int fin ){

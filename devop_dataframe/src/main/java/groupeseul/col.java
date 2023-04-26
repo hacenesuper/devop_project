@@ -75,7 +75,7 @@ public class col <VALUE extends Object>{
     
     /**
      * la methode ajoute une valeur a la colone 
-     * @param val la valeur a ajouter 
+     * @param v la valeur a ajouter 
      */
     public void add(VALUE v){
         this.values.add(v);
