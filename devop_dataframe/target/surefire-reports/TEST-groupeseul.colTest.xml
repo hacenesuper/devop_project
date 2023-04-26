@@ -59,13 +59,13 @@
     <property name="java.vendor.version" value="Temurin-11.0.18+10"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="groupeseul.colTest" name="testIsNumeric" time="0.001"/>
+  <testcase classname="groupeseul.colTest" name="testIsNumeric" time="0"/>
   <testcase classname="groupeseul.colTest" name="testEmptyConstructor" time="0"/>
   <testcase classname="groupeseul.colTest" name="testGetlabel" time="0"/>
-  <testcase classname="groupeseul.colTest" name="testAdd" time="0"/>
-  <testcase classname="groupeseul.colTest" name="testPresent" time="0"/>
+  <testcase classname="groupeseul.colTest" name="testAdd" time="0.001"/>
+  <testcase classname="groupeseul.colTest" name="testPresent" time="0.001"/>
   <testcase classname="groupeseul.colTest" name="testGetSize" time="0"/>
-  <testcase classname="groupeseul.colTest" name="testGetType" time="0.001"/>
-  <testcase classname="groupeseul.colTest" name="testGetValues" time="0.001"/>
-  <testcase classname="groupeseul.colTest" name="testConstructor" time="0"/>
+  <testcase classname="groupeseul.colTest" name="testGetType" time="0"/>
+  <testcase classname="groupeseul.colTest" name="testGetValues" time="0"/>
+  <testcase classname="groupeseul.colTest" name="testConstructor" time="0.001"/>
 </testsuite>
