@@ -4,9 +4,14 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import java.util.ArrayList;
 import java.util.Arrays;
+import junit.framework.TestCase;
+import junit.framework.TestSuite;
 @SuppressWarnings("unchecked")
-public class coltest {
+public class colTest  extends TestCase{
 
+    /**
+     * Rigourous Test :-)
+     */
     @Test
     public void testConstructor() {
         col<String> c = new col("test", "String", new ArrayList(Arrays.asList("foo", "bar")));

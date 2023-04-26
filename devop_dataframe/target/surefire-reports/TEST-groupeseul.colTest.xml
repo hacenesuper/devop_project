@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="1" failures="0" name="groupeseul.AppTest" time="0" errors="0" skipped="0">
+<testsuite tests="9" failures="0" name="groupeseul.colTest" time="0.004" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="java.vm.version" value="18.0.2-ea+9-Ubuntu-222.04"/>
@@ -57,5 +57,13 @@
     <property name="sun.cpu.endian" value="little"/>
     <property name="sun.stdout.encoding" value="UTF-8"/>
   </properties>
-  <testcase classname="groupeseul.AppTest" name="testApp" time="0"/>
+  <testcase classname="groupeseul.colTest" name="testIsNumeric" time="0.004"/>
+  <testcase classname="groupeseul.colTest" name="testEmptyConstructor" time="0"/>
+  <testcase classname="groupeseul.colTest" name="testGetlabel" time="0"/>
+  <testcase classname="groupeseul.colTest" name="testAdd" time="0"/>
+  <testcase classname="groupeseul.colTest" name="testPresent" time="0"/>
+  <testcase classname="groupeseul.colTest" name="testGetSize" time="0"/>
+  <testcase classname="groupeseul.colTest" name="testGetType" time="0"/>
+  <testcase classname="groupeseul.colTest" name="testGetValues" time="0"/>
+  <testcase classname="groupeseul.colTest" name="testConstructor" time="0"/>
 </testsuite>

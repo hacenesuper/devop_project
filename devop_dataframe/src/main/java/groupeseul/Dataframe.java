@@ -43,9 +43,9 @@ public class Dataframe {
      */
     @SuppressWarnings("unchecked")
     public Dataframe( Map<String, List<?>> map) throws BadArgumentException{
-        if(data == null)
-        throw new BadArgumentException("data est null");
-    if(data.isEmpty())
+        if(map == null)
+        throw new BadArgumentException("map est null ");
+    if(map.isEmpty())
         throw new BadArgumentException("data map est vide");      
     
     ArrayList<List<?>> columns = new ArrayList<List<?>>(map.values());
@@ -208,10 +208,10 @@ public col getcol(String label)  {
 
     col col = null;
     for(col col1 : data)
-        if(col.getLabel().equals(label))
-        col = col1;
+        if(col1.getLabel().equals(label))
+           col = col1;
         
-        return col;
+    return col;
     }
 /**
  * ajoute une ligne au tadaframe 
