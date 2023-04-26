@@ -52,7 +52,8 @@
     </executions>
     <configuration>
                     <excludes>
-                        <exclude>**/*Main.class</exclude>
+                        <exclude>**/*App.class</exclude>
+                         <exclude>**/*BadArgumentException.class</exclude>
                     </excludes>
     </configuration>
      </plugin>
