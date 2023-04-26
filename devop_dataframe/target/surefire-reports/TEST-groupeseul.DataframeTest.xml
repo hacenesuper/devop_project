@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
+<<<<<<< HEAD
 <testsuite tests="21" failures="0" name="groupeseul.DataframeTest" time="0.232" errors="0" skipped="0">
+=======
+<testsuite tests="15" failures="0" name="groupeseul.DataframeTest" time="0.369" errors="0" skipped="0">
+>>>>>>> 49c2b9536ce9da98be1d3a931e613d5f780adc44
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="java.vm.version" value="18.0.2-ea+9-Ubuntu-222.04"/>
@@ -57,6 +61,7 @@
     <property name="sun.cpu.endian" value="little"/>
     <property name="sun.stdout.encoding" value="UTF-8"/>
   </properties>
+<<<<<<< HEAD
   <testcase classname="groupeseul.DataframeTest" name="testGetligne" time="0.044"/>
   <testcase classname="groupeseul.DataframeTest" name="testgetnbligne" time="0.003"/>
   <testcase classname="groupeseul.DataframeTest" name="testMin" time="0.003"/>
@@ -78,4 +83,21 @@
   <testcase classname="groupeseul.DataframeTest" name="testGetCol" time="0.004"/>
   <testcase classname="groupeseul.DataframeTest" name="testConstructorlistenull" time="0.003"/>
   <testcase classname="groupeseul.DataframeTest" name="testConstructor" time="0.002"/>
+=======
+  <testcase classname="groupeseul.DataframeTest" name="testGetligne" time="0.099"/>
+  <testcase classname="groupeseul.DataframeTest" name="testgetnbligne" time="0.005"/>
+  <testcase classname="groupeseul.DataframeTest" name="testMin" time="0.008"/>
+  <testcase classname="groupeseul.DataframeTest" name="testSum" time="0.017"/>
+  <testcase classname="groupeseul.DataframeTest" name="testHead" time="0.155"/>
+  <testcase classname="groupeseul.DataframeTest" name="testMean" time="0.016"/>
+  <testcase classname="groupeseul.DataframeTest" name="testTail" time="0.011"/>
+  <testcase classname="groupeseul.DataframeTest" name="testConstructor2" time="0.001"/>
+  <testcase classname="groupeseul.DataframeTest" name="testConstructor3" time="0.002"/>
+  <testcase classname="groupeseul.DataframeTest" name="testSelectionRow" time="0.005"/>
+  <testcase classname="groupeseul.DataframeTest" name="testFetchFromTo" time="0.017"/>
+  <testcase classname="groupeseul.DataframeTest" name="testFetchAll" time="0.019"/>
+  <testcase classname="groupeseul.DataframeTest" name="testGetCol" time="0.002"/>
+  <testcase classname="groupeseul.DataframeTest" name="testConstructorlistenull" time="0.008"/>
+  <testcase classname="groupeseul.DataframeTest" name="testConstructor" time="0.004"/>
+>>>>>>> 49c2b9536ce9da98be1d3a931e613d5f780adc44
 </testsuite>

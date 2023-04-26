@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
+<<<<<<< HEAD
 <testsuite tests="1" failures="0" name="groupeseul.AppTest" time="0" errors="0" skipped="0">
+=======
+<testsuite tests="1" failures="0" name="groupeseul.AppTest" time="0.002" errors="0" skipped="0">
+>>>>>>> 49c2b9536ce9da98be1d3a931e613d5f780adc44
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="java.vm.version" value="18.0.2-ea+9-Ubuntu-222.04"/>
@@ -57,5 +61,9 @@
     <property name="sun.cpu.endian" value="little"/>
     <property name="sun.stdout.encoding" value="UTF-8"/>
   </properties>
+<<<<<<< HEAD
   <testcase classname="groupeseul.AppTest" name="testApp" time="0"/>
+=======
+  <testcase classname="groupeseul.AppTest" name="testApp" time="0.002"/>
+>>>>>>> 49c2b9536ce9da98be1d3a931e613d5f780adc44
 </testsuite>
