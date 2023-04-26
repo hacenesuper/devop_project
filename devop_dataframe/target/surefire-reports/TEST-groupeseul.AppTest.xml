@@ -13,11 +13,7 @@
     <property name="sun.os.patch.level" value="unknown"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-<<<<<<< HEAD
-    <property name="user.dir" value="/home/a/amraneh/Bureau/projects_finals_m2/devop_project/devop_dataframe"/>
-=======
     <property name="user.dir" value="/home/runner/work/devop_project/devop_project"/>
->>>>>>> 8d7818e2d0b5cadcb3b0a349bd73c2fbc6906d44
     <property name="java.vm.compressedOopsMode" value="32-bit"/>
     <property name="java.runtime.version" value="11.0.18+10"/>
     <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment"/>
@@ -46,15 +42,9 @@
     <property name="java.class.path" value="/usr/share/apache-maven-3.8.8/boot/plexus-classworlds-2.6.0.jar"/>
     <property name="java.vm.specification.version" value="11"/>
     <property name="sun.arch.data.model" value="64"/>
-<<<<<<< HEAD
-    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher test"/>
-    <property name="java.home" value="/usr/lib/jvm/java-18-openjdk-amd64"/>
-    <property name="user.language" value="fr"/>
-=======
     <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -f devop_dataframe/pom.xml test"/>
     <property name="java.home" value="/usr/lib/jvm/temurin-11-jdk-amd64"/>
     <property name="user.language" value="en"/>
->>>>>>> 8d7818e2d0b5cadcb3b0a349bd73c2fbc6906d44
     <property name="java.specification.vendor" value="Oracle Corporation"/>
     <property name="awt.toolkit" value="sun.awt.X11.XToolkit"/>
     <property name="java.vm.info" value="mixed mode"/>

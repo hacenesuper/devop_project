@@ -25,37 +25,23 @@ public class Dataframe {
     private ArrayList&lt;String&gt; labels;
     private int nbligne ;
     public int getNbligne() {
-<<<<<<< HEAD
 <span class="fc" id="L28">        return nbligne;</span>
-=======
-<span class="nc" id="L28">        return nbligne;</span>
->>>>>>> 8d7818e2d0b5cadcb3b0a349bd73c2fbc6906d44
     }
     /**
      * constructeur set a vide :
      * inisiatise un dataframe vide 
      */
-<<<<<<< HEAD
 <span class="fc" id="L34">    public Dataframe() {</span>
 <span class="fc" id="L35">        data =new ArrayList&lt;col&gt;();</span>
 <span class="fc" id="L36">        labels=new ArrayList&lt;String&gt;();</span>
 <span class="fc" id="L37">        nbligne=0;</span>
 
 <span class="fc" id="L39">    }</span>
-=======
-<span class="nc" id="L34">    public Dataframe() {</span>
-<span class="nc" id="L35">        data =new ArrayList&lt;col&gt;();</span>
-<span class="nc" id="L36">        labels=new ArrayList&lt;String&gt;();</span>
-<span class="nc" id="L37">        nbligne=0;</span>
-
-<span class="nc" id="L39">    }</span>
->>>>>>> 8d7818e2d0b5cadcb3b0a349bd73c2fbc6906d44
     /**
      * Constructeur à partir de données entrées manuellement
      * @param map : map contenant les données
      */
     @SuppressWarnings(&quot;unchecked&quot;)
-<<<<<<< HEAD
 <span class="fc" id="L45">    public Dataframe( Map&lt;String, List&lt;?&gt;&gt; map) throws BadArgumentException{</span>
 <span class="fc bfc" id="L46" title="All 2 branches covered.">        if(map == null)</span>
 <span class="fc" id="L47">        throw new BadArgumentException(&quot;map est null &quot;);</span>
@@ -81,33 +67,6 @@ public class Dataframe {
     }
 <span class="fc" id="L68">    nbligne = size;</span>
 <span class="fc" id="L69">    }</span>
-=======
-<span class="nc" id="L45">    public Dataframe( Map&lt;String, List&lt;?&gt;&gt; map) throws BadArgumentException{</span>
-<span class="nc bnc" id="L46" title="All 2 branches missed.">        if(data == null)</span>
-<span class="nc" id="L47">        throw new BadArgumentException(&quot;data est null&quot;);</span>
-<span class="nc bnc" id="L48" title="All 2 branches missed.">    if(data.isEmpty())</span>
-<span class="nc" id="L49">        throw new BadArgumentException(&quot;data map est vide&quot;);      </span>
-    
-<span class="nc" id="L51">    ArrayList&lt;List&lt;?&gt;&gt; columns = new ArrayList&lt;List&lt;?&gt;&gt;(map.values());</span>
-<span class="nc" id="L52">    int size = columns.get(0).size();</span>
-<span class="nc bnc" id="L53" title="All 2 branches missed.">    for(List&lt;?&gt; list : columns){</span>
-<span class="nc bnc" id="L54" title="All 2 branches missed.">        if( list == null)</span>
-<span class="nc" id="L55">            throw new BadArgumentException(&quot;le dataframe a une liste null&quot;);</span>
-<span class="nc bnc" id="L56" title="All 2 branches missed.">        else if( list.size() != size)</span>
-<span class="nc" id="L57">            throw new BadArgumentException(&quot;les colonne nont pas la meme taille &quot;);</span>
-<span class="nc" id="L58">    }     </span>
-      
-<span class="nc" id="L60">    data = new ArrayList&lt;col&gt;();</span>
-<span class="nc" id="L61">    labels = new ArrayList&lt;String&gt;();</span>
-<span class="nc bnc" id="L62" title="All 2 branches missed.">    for (String colname : map.keySet()) {</span>
-<span class="nc" id="L63">        String type = map.get(colname).get(0).getClass().toString();</span>
-<span class="nc" id="L64">        type = type.substring(type.lastIndexOf('.') + 1);</span>
-<span class="nc" id="L65">        data.add(new col(colname,type,map.get(colname))); </span>
-<span class="nc" id="L66">        labels.add(colname);</span>
-<span class="nc" id="L67">    }</span>
-<span class="nc" id="L68">    nbligne = size;</span>
-<span class="nc" id="L69">    }</span>
->>>>>>> 8d7818e2d0b5cadcb3b0a349bd73c2fbc6906d44
  /**
      * Constructeur à partir d'un fichier csv
      * @param nomFichier path vers le fichier csv
@@ -115,7 +74,6 @@ public class Dataframe {
      * @throws IOException
      */
     @SuppressWarnings(&quot;unchecked&quot;)
-<<<<<<< HEAD
 <span class="fc" id="L77">    public Dataframe(String nomFichier) throws FileNotFoundException, IOException{</span>
 <span class="fc" id="L78">        data= new ArrayList&lt;col&gt;();</span>
 <span class="fc" id="L79">        labels = new ArrayList&lt;String&gt;();</span>
@@ -135,27 +93,6 @@ public class Dataframe {
      
 <span class="fc" id="L94"> </span>
 }
-=======
-<span class="nc" id="L77">    public Dataframe(String nomFichier) throws FileNotFoundException, IOException{</span>
-<span class="nc" id="L78">        data= new ArrayList&lt;col&gt;();</span>
-<span class="nc" id="L79">        labels = new ArrayList&lt;String&gt;();</span>
-<span class="nc" id="L80">        CSVReader csvReader = new CSVReader(new FileReader(nomFichier));</span>
-<span class="nc" id="L81">        String[] types = csvReader.readNext();</span>
-<span class="nc" id="L82">        String[] labels = csvReader.readNext();</span>
-<span class="nc bnc" id="L83" title="All 2 branches missed.">        for(int i =0; i&lt;labels.length; i++) {</span>
-<span class="nc" id="L84">            this.data.add(new col(labels[i].trim(),types[i].trim(),new ArrayList()));</span>
-<span class="nc" id="L85">            this.labels.add(labels[i].trim());</span>
-        }
-<span class="nc" id="L87">        List&lt;String[]&gt; lines = csvReader.readAll();</span>
-<span class="nc bnc" id="L88" title="All 2 branches missed.">        for (String[] row : lines) </span>
-<span class="nc bnc" id="L89" title="All 2 branches missed.">            for (int i=0; i&lt;row.length;i++) </span>
-<span class="nc" id="L90">                data.get(i).getValues().add(row[i]);</span>
-        
-<span class="nc" id="L92">        nbligne = data.get(0).getsize();</span>
-     
- 
-<span class="nc" id="L95">}</span>
->>>>>>> 8d7818e2d0b5cadcb3b0a349bd73c2fbc6906d44
 /**
  * affiche le dataframe entre debut et fin 
  * @param debut la ligne ou comlmence laffichage 
@@ -244,11 +181,7 @@ public Dataframe selectCol(ArrayList&lt;String&gt; l){
 <span class="nc bnc" id="L181" title="All 2 branches missed.">    for(String label : l){</span>
 <span class="nc" id="L182">        col col = this.getcol(label);</span>
 <span class="nc" id="L183">        dataframe.insertCol(col);</span>
-<<<<<<< HEAD
     }
-=======
-<span class="nc" id="L184">    }</span>
->>>>>>> 8d7818e2d0b5cadcb3b0a349bd73c2fbc6906d44
 <span class="nc" id="L185">    dataframe.nbligne = dataframe.data.get(0).getsize();</span>
 
 <span class="nc" id="L187">return dataframe;</span>
@@ -273,21 +206,12 @@ public List&lt;String&gt; getligne(int index) {
  */
 public col getcol(String label)  {
 
-<<<<<<< HEAD
 <span class="fc" id="L209">    col col = null;</span>
 <span class="fc bfc" id="L210" title="All 2 branches covered.">    for(col col1 : data)</span>
 <span class="fc bfc" id="L211" title="All 2 branches covered.">        if(col1.getLabel().equals(label))</span>
 <span class="fc" id="L212">           col = col1;</span>
         
 <span class="fc" id="L214">    return col;</span>
-=======
-<span class="nc" id="L209">    col col = null;</span>
-<span class="nc bnc" id="L210" title="All 2 branches missed.">    for(col col1 : data)</span>
-<span class="nc bnc" id="L211" title="All 2 branches missed.">        if(col.getLabel().equals(label))</span>
-<span class="nc" id="L212">        col = col1;</span>
-        
-<span class="nc" id="L214">        return col;</span>
->>>>>>> 8d7818e2d0b5cadcb3b0a349bd73c2fbc6906d44
     }
 /**
  * ajoute une ligne au tadaframe 
