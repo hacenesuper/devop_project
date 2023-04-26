@@ -32,11 +32,13 @@ jobs:
         
     - name: step 5 run test
       run: mvn -f devop_dataframe/pom.xml test
-      
+   #Generation de coverage code avec jacoco
     - name: Generate JaCoCo Badge
-      id: jacoco
       uses: cicirello/jacoco-badge-generator@v2
-
+      with:
+        generate-branches-badge: true
+        jacoco-csv-file: app/target/site/jacoco/jacoco.csv
+        badges-directory: .github/badges
     - name: Log coverage percentage
       run: |
         echo "coverage = ${{ steps.jacoco.outputs.coverage }}"
