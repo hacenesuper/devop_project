@@ -1,10 +1,5 @@
 GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
-<<<<<<< HEAD
 devop_dataframe,groupeseul,BadArgumentException,0,4,0,0,0,2,0,1,0,1
-devop_dataframe,groupeseul,Dataframe,455,261,52,22,88,47,39,16,13,5
+devop_dataframe,groupeseul,Dataframe,111,605,20,54,24,114,18,37,2,16
 devop_dataframe,groupeseul,col,0,69,0,6,0,20,0,12,0,9
-=======
-devop_dataframe,groupeseul,BadArgumentException,4,0,0,0,2,0,1,0,1,0
-devop_dataframe,groupeseul,Dataframe,718,0,74,0,138,0,55,0,18,0
->>>>>>> 8d7818e2d0b5cadcb3b0a349bd73c2fbc6906d44
 devop_dataframe,groupeseul,App,7,0,0,0,3,0,2,0,2,0

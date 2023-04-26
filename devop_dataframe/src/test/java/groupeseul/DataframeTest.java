@@ -67,6 +67,9 @@ public class DataframeTest {
         oscars = null;
         students = null;
     } 
+     /*
+     * test constructeur 
+     */
      @Test (expected = BadArgumentException.class)
     public void testConstructor() throws Exception{
         List<Integer> list1  = Arrays.asList(1, 2, 3);        
@@ -102,6 +105,10 @@ public class DataframeTest {
         
         Dataframe df = new Dataframe(data);
     }   
+
+     /*
+     * test methode util
+     */
     @Test
     public void testgetnbligne() {
     
@@ -109,6 +116,13 @@ public class DataframeTest {
         assertEquals(students.getNbligne(),6);
         assertEquals(oscars.getNbligne(),89);
        
+    }
+    @Test
+    public void testGetligne() throws Exception {
+        List<String> row1 = new ArrayList<String>(Arrays.asList("true", "Emma", "113090", "14.9"));
+        List<String> row2 = students.getligne(3);
+        assertEquals(row1, row2);
+        
     }
     @Test
     public void testGetCol() {
@@ -125,7 +139,69 @@ public class DataframeTest {
         assertEquals(c, Df.getcol("testCol1"));
         
     }
+
    
+    /*
+     * test selection 
+     */
+    @Test
+    public void testSelectionRow()  {
+        Dataframe d = students.selectLigne(0, 2);
+        assertEquals(3, d.getNbligne());
+    }
+    public void testSelectioncol() throws Exception {
+        ArrayList<String> list = new ArrayList<String>(Arrays.asList("Name","Age"));
+        Dataframe d = oscars.selectCol(list);
+        
+        assertEquals(89, d.getNbligne());  
+      }
+      /*
+     * test affichage 
+     */
+    @Test
+    public void testFetchAll() throws Exception {
+        students.afficher();
+    }
+
+    @Test
+    public void testFetchFromTo() throws Exception {
+        students.afficherdev(0,students.getNbligne());
+    }
+    
+
+    @Test 
+    public void testHead() throws Exception {
+        students.afficherDebut(1); 
+    }
+    
+
+    @Test
+    public void testTail() throws Exception {
+        students.afficherFin(1); 
+    }
+  /*
+     * test des methode min max mean sum
+     */
+    @Test
+    public void testSum() throws Exception {
+        assertEquals(4005, oscars.sum("Index"),0.01);
+        assertEquals(74.58, students.sum("moyenne"),0.01);
+    }
+    
+    @Test
+    public void testMin() throws Exception {
+        assertEquals(1,oscars.min("Index"),0.01);
+        assertEquals(9.45,students.min("moyenne"),0.01);
+    }
+    public void testMax() throws Exception {
+        assertEquals(89,oscars.max("Index"),0.01);
+        assertEquals(15.15,students.max("moyenne"),0.01);
+    }
+    @Test
+    public void testMean() throws Exception {
+        assertEquals(45,oscars.mean("Index"),0.01);
+        assertEquals(12.43,students.mean("moyenne"),0.01);
+    }
     
    
  
