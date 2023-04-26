@@ -55,7 +55,7 @@ public class DataframeTest {
         data.put("num Etudiant", numEtudiant);
         data.put("admis", estAdmis);
         data.put("moyenne", moyenne);
-        oscars = new Dataframe("src/test/ressources/oscars.csv");
+        oscars = new Dataframe("src/test/ressources/test.csv");
         
         students = new Dataframe(data);
         Df = new Dataframe();

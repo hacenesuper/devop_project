@@ -1,14 +1,70 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>App.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">devop_dataframe</a> &gt; <a href="index.source.html" class="el_package">groupeseul</a> &gt; <span class="el_source">App.java</span></div><h1>App.java</h1><pre class="source lang-java linenums">package groupeseul;
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>App.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">devop_dataframe</a> &gt; <a href="index.source.html" class="el_package">groupeseul</a> &gt; <span class="el_source">App.java</span></div><h1>App.java</h1><pre class="source lang-java linenums">package groupeseul;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Hello world!
  *
  */
-<span class="nc" id="L7">public class App </span>
+<span class="nc" id="L15">public class App </span>
 {
-    public static void main( String[] args )
+    public static void main( String[] args ) throws BadArgumentException, FileNotFoundException, IOException
     {
-<span class="nc" id="L11">        System.out.println( &quot;Hello World!&quot; );</span>
-<span class="nc" id="L12">    }</span>
+<span class="nc" id="L19">        List&lt;String&gt; name = new ArrayList&lt;String&gt; (Arrays.asList(&quot;Léa&quot;, &quot;Claude&quot;, &quot;Tony&quot;, &quot;Emma&quot;, &quot;Ali&quot;, &quot;Sarah&quot;));</span>
+<span class="nc" id="L20">        List&lt;Integer&gt; num = new ArrayList&lt;Integer&gt;(Arrays.asList(1, 2, 3, 4, 5, 6));   </span>
+<span class="nc" id="L21">        List&lt;Boolean&gt; admission = new ArrayList&lt;Boolean&gt;(Arrays.asList(true, true, false, true, false, true));      </span>
+<span class="nc" id="L22">        List&lt;Double&gt; moy = new ArrayList&lt;Double&gt; (Arrays.asList(9.73, 17.83, 14.77, 11.00, 7.45, 11.15)); </span>
+        
+<span class="nc" id="L24">        Map&lt;String,List&lt;?&gt;&gt; dataset = new HashMap&lt;String,List&lt;?&gt;&gt;();</span>
+<span class="nc" id="L25">        dataset.put(&quot;NOM&quot;, name);</span>
+<span class="nc" id="L26">        dataset.put(&quot;num Etudiant&quot;, num);</span>
+<span class="nc" id="L27">        dataset.put(&quot;admis&quot;, admission);</span>
+<span class="nc" id="L28">        dataset.put(&quot;moyenne&quot;, moy);</span>
+        
+    /****************** Dataframe from data structure ******************/
+        
+<span class="nc" id="L32">       Dataframe df1 = new Dataframe(dataset);</span>
+<span class="nc" id="L33">        System.out.println(&quot;\n\t\t\t\tDATAFRAME: \n&quot;);</span>
+        
+      
+<span class="nc" id="L36">        df1.afficher();</span>
+<span class="nc" id="L37">        System.out.println(&quot;\n\t\t\t\tSTATS OF COLUMN : moy\n&quot;);</span>
+        
+      //  df1.afficherStats(&quot;moy&quot;);
+<span class="nc" id="L40">        System.out.println(&quot;\n\n&quot;);</span>
+        
+        
+    /****************** Dataframe from csv file (oscars) ****************/
+       
+<span class="nc" id="L45">        Dataframe df2 = new Dataframe(args[0]);</span>
+<span class="nc" id="L46">        System.out.println(&quot;\t\t\t\t OSCARS DATAFRAME : \n&quot;);</span>
+        
+<span class="nc" id="L48">        df2.afficher();</span>
+<span class="nc" id="L49">        System.out.println(&quot;\n\t\t\tSTATS OF COLUMN : AGE\n&quot;);</span>
+        
+      //  df2.afficherStats(&quot;Age&quot;);
+<span class="nc" id="L52">        System.out.println(&quot;&quot;);</span>
+<span class="nc" id="L53">        System.out.println(&quot;\t\t\tSELECTION ligne: \n&quot;);</span>
+        
+<span class="nc" id="L55">        Dataframe d = df2.selectLigne(85,88);</span>
+        
+<span class="nc" id="L57">        d.afficher();</span>
+<span class="nc" id="L58">        System.out.println(&quot;&quot;);</span>
+<span class="nc" id="L59">        System.out.println(&quot;\t\t\tSELECTION collone: \n&quot;);</span>
+      
+<span class="nc" id="L61">        ArrayList&lt;String&gt; L = new ArrayList&lt;String&gt; (Arrays.asList(&quot;Name&quot;, &quot;Age&quot;, &quot;Movie&quot;));</span>
+<span class="nc" id="L62">        d = d.selectCol(L);</span>
+        
+
+<span class="nc" id="L65">        d.afficher();</span>
+<span class="nc" id="L66">        System.out.println(&quot;&quot;);</span>
+        
+<span class="nc" id="L68">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>
