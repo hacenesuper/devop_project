@@ -34,7 +34,13 @@ jobs:
   - name: step 5 run test
     run: mvn -f devop_dataframe/pom.xml test
         
-
+  - name: Publish to GitHub Packages Apache Maven
+    run: 
+     |
+  
+     mvn deploy -s $GITHUB_WORKSPACE/settings.xml
+    env:
+        GITHUB_TOKEN: ${{ github.token }}
       #Generation de coverage code avec jacoco
   - name: Generate JaCoCo Badge
     uses: cicirello/jacoco-badge-generator@v2
@@ -75,10 +81,4 @@ jobs:
     run: |
           docker tag dataframe hacenesuper/dataframe:latest
           docker push hacenesuper/dataframe:latest          
-  - name: Publish to GitHub Packages Apache Maven
-    run: 
-      
-      cd devop_dataframe 
-      mvn deploy -s $GITHUB_WORKSPACE/settings.xml
-    env:
-        GITHUB_TOKEN: ${{ github.token }}
+
