@@ -47,6 +47,7 @@ public class col <VALUE extends Object>{
         return label;
     }
     
+
     /**
      * la methode retourne le type de la colone 
      * @return le ltype de la colone 
@@ -79,5 +80,14 @@ public class col <VALUE extends Object>{
     public void add(VALUE v){
         this.values.add(v);
     }
-  
+    /**
+     * la methode teste si la colonne est costituer de valeur numerique 
+     * @return
+     */
+    public boolean isnumeric(){
+        return( ( this.getType().equals("Integer")) ||
+                ( this.getType().equals("Double" )) ||
+                ( this.getType().equals("Float"  ))       
+            );
+    }
 }

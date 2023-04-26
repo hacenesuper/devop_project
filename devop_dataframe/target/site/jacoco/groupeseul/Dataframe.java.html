@@ -1,10 +1,301 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Dataframe.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">devop_dataframe</a> &gt; <a href="index.source.html" class="el_package">groupeseul</a> &gt; <span class="el_source">Dataframe.java</span></div><h1>Dataframe.java</h1><pre class="source lang-java linenums">package groupeseul;
 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
-<span class="nc" id="L5">public class Dataframe {</span>
-    private ArrayList&lt;String&gt; type;
-    private ArrayList&lt;ArrayList&lt;String&gt;&gt; values;
+import com.opencsv.CSVReader;
+
+import de.vandermeer.asciitable.AsciiTable;
+import de.vandermeer.asciithemes.a7.A7_Grids;
+import de.vandermeer.skb.interfaces.transformers.textformat.TextAlignment;
+/**
+* la classe represente un dataframe 
+*  
+* @author amrane hacene 
+* @version 1.0
+*/
+public class Dataframe {
+ 
+    private List&lt;col&gt; data;
     private ArrayList&lt;String&gt; labels;
+    private int nbligne ;
+    public int getNbligne() {
+<span class="nc" id="L27">        return nbligne;</span>
+    }
+    /**
+     * constructeur set a vide :
+     * inisiatise un dataframe vide 
+     */
+<span class="nc" id="L33">    public Dataframe() {</span>
+<span class="nc" id="L34">        data =new ArrayList&lt;col&gt;();</span>
+<span class="nc" id="L35">        labels=new ArrayList&lt;String&gt;();</span>
+<span class="nc" id="L36">        nbligne=0;</span>
+
+<span class="nc" id="L38">    }</span>
+    /**
+     * Constructeur à partir de données entrées manuellement
+     * @param map : map contenant les données
+     */
+    @SuppressWarnings(&quot;unchecked&quot;)
+<span class="nc" id="L44">    public Dataframe( HashMap&lt;String, List&lt;?&gt;&gt; map) {</span>
+  
+<span class="nc" id="L46">    ArrayList&lt;List&lt;?&gt;&gt; columns = new ArrayList&lt;List&lt;?&gt;&gt;(map.values());</span>
+<span class="nc" id="L47">    int size = columns.get(0).size();</span>
+    
+      
+<span class="nc" id="L50">    data = new ArrayList&lt;col&gt;();</span>
+<span class="nc" id="L51">    labels = new ArrayList&lt;String&gt;();</span>
+<span class="nc bnc" id="L52" title="All 2 branches missed.">    for (String colname : map.keySet()) {</span>
+<span class="nc" id="L53">        String type = map.get(colname).get(0).getClass().toString();</span>
+<span class="nc" id="L54">        type = type.substring(type.lastIndexOf('.') + 1);</span>
+<span class="nc" id="L55">        data.add(new col(colname,type,map.get(colname))); </span>
+<span class="nc" id="L56">        labels.add(colname);</span>
+<span class="nc" id="L57">    }</span>
+<span class="nc" id="L58">    nbligne = size;</span>
+<span class="nc" id="L59">    }</span>
+ /**
+     * Constructeur à partir d'un fichier csv
+     * @param nomFichier path vers le fichier csv
+     * @throws FileNotFoundException
+     * @throws IOException
+     */
+    @SuppressWarnings(&quot;unchecked&quot;)
+<span class="nc" id="L67">    public Dataframe(String nomFichier) throws FileNotFoundException, IOException{</span>
+<span class="nc" id="L68">        data= new ArrayList&lt;col&gt;();</span>
+<span class="nc" id="L69">        labels = new ArrayList&lt;String&gt;();</span>
+<span class="nc" id="L70">        CSVReader csvReader = new CSVReader(new FileReader(nomFichier));</span>
+<span class="nc" id="L71">        String[] types = csvReader.readNext();</span>
+<span class="nc" id="L72">        String[] labels = csvReader.readNext();</span>
+<span class="nc bnc" id="L73" title="All 2 branches missed.">        for(int i =0; i&lt;labels.length; i++) {</span>
+<span class="nc" id="L74">            this.data.add(new col(labels[i].trim(),types[i].trim(),new ArrayList()));</span>
+<span class="nc" id="L75">            this.labels.add(labels[i].trim());</span>
+        }
+<span class="nc" id="L77">        List&lt;String[]&gt; lines = csvReader.readAll();</span>
+<span class="nc bnc" id="L78" title="All 2 branches missed.">        for (String[] row : lines) </span>
+<span class="nc bnc" id="L79" title="All 2 branches missed.">            for (int i=0; i&lt;row.length;i++) </span>
+<span class="nc" id="L80">                data.get(i).getValues().add(row[i]);</span>
+        
+<span class="nc" id="L82">        nbligne = data.get(0).getsize();</span>
+     
+ 
+<span class="nc" id="L85">}</span>
+/**
+ * affiche le dataframe entre debut et fin 
+ * @param debut la ligne ou comlmence laffichage 
+ * @param fin la ligne afficher en dernier 
+ * @throws BadArgumentException
+ */
+protected void afficherdev(int debut, int fin) throws BadArgumentException{
+<span class="nc bnc" id="L93" title="All 4 branches missed.">    if(debut &lt; 0 || debut &gt; getNbligne())</span>
+<span class="nc" id="L94">        throw new BadArgumentException(&quot;debut&quot;);</span>
+<span class="nc bnc" id="L95" title="All 4 branches missed.">    if(fin &lt; 0 || fin &gt; getNbligne()) </span>
+<span class="nc" id="L96">        throw new BadArgumentException(&quot;fin&quot;);</span>
+<span class="nc bnc" id="L97" title="All 2 branches missed.">    if(debut &gt; fin) </span>
+<span class="nc" id="L98">        throw new BadArgumentException(&quot;debut shoud be &lt;= fin&quot;);</span>
+    
+<span class="nc" id="L100">    AsciiTable at = new AsciiTable();</span>
+<span class="nc" id="L101">    at.addRule();</span>
+<span class="nc" id="L102">    at.addRow(labels);</span>
+<span class="nc bnc" id="L103" title="All 2 branches missed.">    for(int i=debut;i&lt;fin;i++){</span>
+<span class="nc" id="L104">        at.addRule();</span>
+<span class="nc" id="L105">        List&lt;String&gt; row = new ArrayList&lt;String&gt;();</span>
+<span class="nc bnc" id="L106" title="All 2 branches missed.">        for(col column : data)</span>
+<span class="nc" id="L107">            row.add(column.getValues().get(i).toString());</span>
+<span class="nc" id="L108">        at.addRow(row);</span>
+    }
+<span class="nc" id="L110">    at.addRule();</span>
+<span class="nc" id="L111">    at.setTextAlignment(TextAlignment.CENTER);</span>
+<span class="nc" id="L112">    at.getContext().setGrid(A7_Grids.minusBarPlusEquals());</span>
+<span class="nc" id="L113">    System.out.println(at.render());</span>
+    
+<span class="nc" id="L115">}</span>
+
+
+/**
+ * la methode affiche le debut du dataframe
+ * @param nbline le nombre le ligne a afficher 
+ * @throws BadArgumentException
+ */
+public void afficherDebut(int nbline) throws BadArgumentException {
+<span class="nc bnc" id="L124" title="All 4 branches missed.">    if(nbline &lt; 0 || nbline &gt; getNbligne())</span>
+<span class="nc" id="L125">        throw new BadArgumentException(&quot;number of lines&quot;);</span>
+<span class="nc" id="L126">    afficherdev(0, nbline);</span>
+<span class="nc" id="L127">}</span>
+/**
+ * la methode affiche la fin  du dataframe
+ * @param nbline le nombre de ligne a afficher 
+ * @throws BadArgumentException
+ */
+public void afficherFin(int nbline) throws BadArgumentException {
+<span class="nc bnc" id="L134" title="All 4 branches missed.">    if(nbline &lt; 0 || nbline &gt; getNbligne())</span>
+<span class="nc" id="L135">        throw new BadArgumentException(&quot;number of lines&quot;);</span>
+<span class="nc" id="L136">   afficherdev(getNbligne()-nbline,getNbligne());</span>
+<span class="nc" id="L137">}</span>
+/**
+ * la methode affiche lintegralité du dataframe
+ * @throws BadArgumentException
+ */
+public void afficher() throws BadArgumentException{
+<span class="nc" id="L143">    afficherdev(0,getNbligne());</span>
+<span class="nc" id="L144">}</span>
+
+
+/**
+ * la methode donne un daraframe qui contiens les lignes selectioner 
+ * @param debut le debut de la ligne a selectioner 
+ * @param finla drniere ligne a selectioner 
+ * @return
+ */
+public Dataframe selectLigne(int debut ,int fin ){
+<span class="nc" id="L154">    Dataframe dataframe = new Dataframe();</span>
+<span class="nc bnc" id="L155" title="All 2 branches missed.">    for(col col : this.data)</span>
+<span class="nc" id="L156">            dataframe.insertCol( new col(col.getLabel(), col.getType()) );</span>
+
+<span class="nc bnc" id="L158" title="All 2 branches missed.">        for(int i=debut; i&lt;=fin; i++){</span>
+<span class="nc" id="L159">            String[] ligne = this.getligne(i).toArray(new String[0]);</span>
+<span class="nc" id="L160">            dataframe.insertligne(ligne);</span>
+        }
+<span class="nc" id="L162">return dataframe;</span>
+}
+/**
+ * la methode selectionne une partie des colonne du dataframe 
+ * @param l la liste des labels a selectioner 
+ * @return un nouveau dataframe qui contiens les colonne selectioner a partir des labels passer en parametre  
+ */
+public Dataframe selectCol(ArrayList&lt;String&gt; l){
+<span class="nc" id="L170">    Dataframe dataframe = new Dataframe();</span>
+<span class="nc bnc" id="L171" title="All 2 branches missed.">    for(String label : l){</span>
+<span class="nc" id="L172">        col col = this.getcol(label);</span>
+<span class="nc" id="L173">        dataframe.insertCol(col);</span>
+<span class="nc" id="L174">    }</span>
+<span class="nc" id="L175">    dataframe.nbligne = dataframe.data.get(0).getsize();</span>
+
+<span class="nc" id="L177">return dataframe;</span>
+}
+
+/**
+ * donne la ligne qui corespond a lindex index
+ * @param index lindex de la ligne a retourner 
+ * @return une liste des valeur a la ligne index 
+ */
+public List&lt;String&gt; getligne(int index) {
+<span class="nc" id="L186">    ArrayList&lt;String&gt; ligne = new ArrayList&lt;String&gt;();</span>
+<span class="nc bnc" id="L187" title="All 2 branches missed.">    for(col col : this.data)</span>
+<span class="nc" id="L188">        ligne.add(col.getValues().get(index).toString());</span>
+    
+<span class="nc" id="L190">    return ligne;}</span>
+
+/**
+ * la methode donne la colonne qui a le label label
+ * @param label le label de la collone a retourner 
+ * @return une colone 
+ */
+public col getcol(String label)  {
+
+<span class="nc" id="L199">    col col = null;</span>
+<span class="nc bnc" id="L200" title="All 2 branches missed.">    for(col col1 : data)</span>
+<span class="nc bnc" id="L201" title="All 2 branches missed.">        if(col.getLabel().equals(label))</span>
+<span class="nc" id="L202">        col = col1;</span>
+        
+<span class="nc" id="L204">        return col;</span>
+    }
+/**
+ * ajoute une ligne au tadaframe 
+ * @param l la ligne a ajouter au dataframe 
+ */
+public void insertligne(String[] l) {
+        
+<span class="nc bnc" id="L212" title="All 2 branches missed.">        for(int i=0; i&lt;this.labels.size(); i++){</span>
+<span class="nc" id="L213">            this.data.get(i).add(l[i]);</span>
+        }
+<span class="nc" id="L215">        this.nbligne++;</span>
+            
+<span class="nc" id="L217">    }</span>
+    /**
+     * la methode insere une colone dans le dataframe 
+     * @param c la colone a inserer 
+     */
+    public void insertCol(col c) {
+       
+<span class="nc" id="L224">        data.add(c);</span>
+<span class="nc" id="L225">        labels.add(c.getLabel());</span>
+<span class="nc" id="L226">    }</span>
+
+
+    /**
+     * la methode retourne la somme des valeurs dune colonne dont le nom est donner en parametre 
+     * @param label le label de la colonne 
+     * @return la somme des valeurs present dans la colonne 
+     */
+    public double sum(String label) {
+<span class="nc" id="L235">      col c =getcol(label);</span>
+<span class="nc bnc" id="L236" title="All 2 branches missed.">      if( c.isnumeric()){</span>
+<span class="nc" id="L237">        double sum = 0;</span>
+<span class="nc bnc" id="L238" title="All 2 branches missed.">        for(int i=0; i&lt;c.getValues().size();i++)</span>
+<span class="nc" id="L239">                sum += Double.parseDouble( c.getValues().get(i).toString() );</span>
+<span class="nc" id="L240">    double res = Math.round(sum* 100.0) / 100.0;</span>
+<span class="nc" id="L241">    return res;</span>
+<span class="nc" id="L242">    }else {return 0;}</span>
+    }
+    /**
+     * la methode retourne la valeur minimum parmis les valeurs d'une colonne dont le nom est donner en parametre 
+     * @param label le label de la colonne 
+     * @return le minimum des valeurs present dans la colonne 
+     */
+    public double min(String label) {
+<span class="nc" id="L250">        col c =getcol(label);</span>
+<span class="nc bnc" id="L251" title="All 2 branches missed.">        if( c.isnumeric() ){</span>
+<span class="nc" id="L252">            double min = Float.MAX_VALUE;</span>
+<span class="nc bnc" id="L253" title="All 2 branches missed.">            for(int i=0; i&lt;c.getValues().size(); i++)</span>
+<span class="nc bnc" id="L254" title="All 2 branches missed.">                if (min &gt; Float.parseFloat(c.getValues().get(i).toString()))</span>
+<span class="nc" id="L255">                    min = Float.parseFloat( c.getValues().get(i).toString());</span>
+          
+<span class="nc" id="L257">            double res = Math.round(min* 100.0) / 100.0;</span>
+<span class="nc" id="L258">            return res;</span>
+        }
+        else
+<span class="nc" id="L261">            return 0; </span>
+      }
+    /**
+     * la methode retourne la valeur maximum parmis les valeurs d'une colonne dont le nom est donner en parametre 
+     * @param label le label de la colonne 
+     * @return le maximum des valeurs present dans la colonne 
+     */
+    public double max(String label) {
+<span class="nc" id="L269">        col c =getcol(label);</span>
+<span class="nc bnc" id="L270" title="All 2 branches missed.">        if( c.isnumeric()){</span>
+<span class="nc" id="L271">            double max = Float.MIN_VALUE;</span>
+<span class="nc bnc" id="L272" title="All 2 branches missed.">            for(int i=0; i&lt;c.getValues().size(); i++)</span>
+<span class="nc bnc" id="L273" title="All 2 branches missed.">                if (max &lt; Float.parseFloat(c.getValues().get(i).toString()))</span>
+<span class="nc" id="L274">                  max = Float.parseFloat( c.getValues().get(i).toString() );</span>
+           
+<span class="nc" id="L276">            double res = Math.round(max* 100.0) / 100.0;</span>
+<span class="nc" id="L277">            return res;</span>
+        }
+        else
+<span class="nc" id="L280">            return 0; </span>
+    }
+    /**
+     * la methode retourne la moyenne des  valeurs numeric d'une colonne dont le nom est donner en parametre 
+     * @param label le label de la colonne 
+     * @return la moyenne des valeurs present dans la colonne 
+     */
+    public double mean(String label) {
+<span class="nc" id="L288">        col c =getcol(label);</span>
+<span class="nc bnc" id="L289" title="All 2 branches missed.">        if( c.isnumeric()){</span>
+<span class="nc" id="L290">            double sum = 0;</span>
+<span class="nc bnc" id="L291" title="All 2 branches missed.">            for(int i=0; i&lt;c.getValues().size(); i++)</span>
+<span class="nc" id="L292">                    sum += Double.parseDouble( c.getValues().get(i).toString() );</span>
+            
+<span class="nc" id="L294">            double res = Math.round(sum/c.getValues().size()* 100.0) / 100.0;</span>
+<span class="nc" id="L295">            return res;</span>
+        }
+        else
+<span class="nc" id="L298">            return 0;</span>
+    }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.opencsv.CSVReader;
 
@@ -41,11 +42,20 @@ public class Dataframe {
      * @param map : map contenant les données
      */
     @SuppressWarnings("unchecked")
-    public Dataframe( HashMap<String, List<?>> map) {
-  
+    public Dataframe( Map<String, List<?>> map) throws BadArgumentException{
+        if(data == null)
+        throw new BadArgumentException("data est null");
+    if(data.isEmpty())
+        throw new BadArgumentException("data map est vide");      
+    
     ArrayList<List<?>> columns = new ArrayList<List<?>>(map.values());
     int size = columns.get(0).size();
-    
+    for(List<?> list : columns){
+        if( list == null)
+            throw new BadArgumentException("le dataframe a une liste null");
+        else if( list.size() != size)
+            throw new BadArgumentException("les colonne nont pas la meme taille ");
+    }     
       
     data = new ArrayList<col>();
     labels = new ArrayList<String>();

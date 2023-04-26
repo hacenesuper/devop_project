@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="1" failures="0" name="groupeseul.AppTest" time="0.004" errors="0" skipped="0">
+<testsuite tests="1" failures="0" name="groupeseul.AppTest" time="0.003" errors="0" skipped="0">
   <properties>
+    <property name="jansi.mode" value="strip"/>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="java.vm.version" value="18.0.2-ea+9-Ubuntu-222.04"/>
     <property name="sun.boot.library.path" value="/usr/lib/jvm/java-18-openjdk-amd64/lib"/>
@@ -13,7 +14,7 @@
     <property name="user.country" value="FR"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.dir" value="/home/a/amraneh/Bureau/projects_finals_m2/devop_project/devop_dataframe"/>
+    <property name="user.dir" value="/home/a/amraneh/Bureau/projects_finals_m2/devop_project"/>
     <property name="java.vm.compressedOopsMode" value="32-bit"/>
     <property name="java.runtime.version" value="18.0.2-ea+9-Ubuntu-222.04"/>
     <property name="os.arch" value="amd64"/>
@@ -40,7 +41,7 @@
     <property name="java.class.path" value="/opt/apache-maven-3.8.7/boot/plexus-classworlds-2.6.0.jar"/>
     <property name="java.vm.specification.version" value="18"/>
     <property name="sun.arch.data.model" value="64"/>
-    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher package"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -B package --file devop_dataframe/pom.xml"/>
     <property name="java.home" value="/usr/lib/jvm/java-18-openjdk-amd64"/>
     <property name="user.language" value="fr"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
@@ -57,5 +58,5 @@
     <property name="sun.cpu.endian" value="little"/>
     <property name="sun.stdout.encoding" value="UTF-8"/>
   </properties>
-  <testcase classname="groupeseul.AppTest" name="testApp" time="0.004"/>
+  <testcase classname="groupeseul.AppTest" name="testApp" time="0.003"/>
 </testsuite>

@@ -47,12 +47,13 @@ public class col &lt;VALUE extends Object&gt;{
 <span class="nc" id="L47">        return label;</span>
     }
     
+
     /**
      * la methode retourne le type de la colone 
      * @return le ltype de la colone 
      */
     public String getType() {
-<span class="nc" id="L55">        return type;</span>
+<span class="nc" id="L56">        return type;</span>
     }
     
     /**
@@ -60,7 +61,7 @@ public class col &lt;VALUE extends Object&gt;{
      * @return une liste des valeurs presents dans la colone 
      */
     public List&lt;VALUE&gt; getValues() {
-<span class="nc" id="L63">        return values;</span>
+<span class="nc" id="L64">        return values;</span>
     }
     /**
      * This methode is used to test whether the Column contains a value
@@ -68,7 +69,7 @@ public class col &lt;VALUE extends Object&gt;{
      * @return true si la valeur est presente , faux sinon 
      */
     public boolean present (VALUE v){
-<span class="nc" id="L71">        return values.contains(v);</span>
+<span class="nc" id="L72">        return values.contains(v);</span>
         
     }
     
@@ -77,7 +78,17 @@ public class col &lt;VALUE extends Object&gt;{
      * @param val la valeur a ajouter 
      */
     public void add(VALUE v){
-<span class="nc" id="L80">        this.values.add(v);</span>
-<span class="nc" id="L81">    }</span>
+<span class="nc" id="L81">        this.values.add(v);</span>
+<span class="nc" id="L82">    }</span>
+    /**
+     * la methode teste si la colonne est costituer de valeur numerique 
+     * @return
+     */
+    public boolean isnumeric(){
+<span class="nc bnc" id="L88" title="All 2 branches missed.">        return( ( this.getType().equals(&quot;Integer&quot;)) ||</span>
+<span class="nc bnc" id="L89" title="All 2 branches missed.">                ( this.getType().equals(&quot;Double&quot; )) ||</span>
+<span class="nc bnc" id="L90" title="All 2 branches missed.">                ( this.getType().equals(&quot;Float&quot;  ))       </span>
+            );
+    }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>
