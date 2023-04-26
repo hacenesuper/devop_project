@@ -1,3 +1,9 @@
+<<<<<<< HEAD
 /home/a/amraneh/Bureau/projects_finals_m2/devop_project/devop_dataframe/src/test/java/groupeseul/colTest.java
 /home/a/amraneh/Bureau/projects_finals_m2/devop_project/devop_dataframe/src/test/java/groupeseul/AppTest.java
 /home/a/amraneh/Bureau/projects_finals_m2/devop_project/devop_dataframe/src/test/java/groupeseul/DataframeTest.java
+=======
+/home/runner/work/devop_project/devop_project/devop_dataframe/src/test/java/groupeseul/colTest.java
+/home/runner/work/devop_project/devop_project/devop_dataframe/src/test/java/groupeseul/DataframeTest.java
+/home/runner/work/devop_project/devop_project/devop_dataframe/src/test/java/groupeseul/AppTest.java
+>>>>>>> b335e7f93eff57cad48b15079efd78b81b47ecb4

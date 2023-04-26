@@ -1,4 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: groupeseul.DataframeTest
 -------------------------------------------------------------------------------
+<<<<<<< HEAD
 Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.308 sec
+=======
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.227 sec
+>>>>>>> b335e7f93eff57cad48b15079efd78b81b47ecb4

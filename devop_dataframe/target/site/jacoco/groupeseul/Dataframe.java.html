@@ -91,8 +91,13 @@ public class Dataframe {
         
 <span class="fc" id="L92">        nbligne = data.get(0).getsize();</span>
      
+<<<<<<< HEAD
  
 <span class="fc" id="L95">}</span>
+=======
+<span class="fc" id="L94"> </span>
+}
+>>>>>>> b335e7f93eff57cad48b15079efd78b81b47ecb4
 /**
  * affiche le dataframe entre debut et fin 
  * @param debut la ligne ou comlmence laffichage 
@@ -181,7 +186,11 @@ public Dataframe selectCol(ArrayList&lt;String&gt; l){
 <span class="nc bnc" id="L181" title="All 2 branches missed.">    for(String label : l){</span>
 <span class="nc" id="L182">        col col = this.getcol(label);</span>
 <span class="nc" id="L183">        dataframe.insertCol(col);</span>
+<<<<<<< HEAD
 <span class="nc" id="L184">    }</span>
+=======
+    }
+>>>>>>> b335e7f93eff57cad48b15079efd78b81b47ecb4
 <span class="nc" id="L185">    dataframe.nbligne = dataframe.data.get(0).getsize();</span>
 
 <span class="nc" id="L187">return dataframe;</span>
