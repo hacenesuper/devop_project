@@ -59,7 +59,7 @@ public class Dataframe {
 <span class="fc" id="L59">            throw new BadArgumentException(&quot;le dataframe a une liste null&quot;);</span>
 <span class="fc bfc" id="L60" title="All 2 branches covered.">        else if( list.size() != size)</span>
 <span class="fc" id="L61">            throw new BadArgumentException(&quot;les colonne nont pas la meme taille &quot;);</span>
-<span class="fc" id="L62">    }     </span>
+    }     
       
 <span class="fc" id="L64">    data = new ArrayList&lt;col&gt;();</span>
 <span class="fc" id="L65">    labels = new ArrayList&lt;String&gt;();</span>
@@ -68,7 +68,7 @@ public class Dataframe {
 <span class="fc" id="L68">        type = type.substring(type.lastIndexOf('.') + 1);</span>
 <span class="fc" id="L69">        data.add(new col(colname,type,map.get(colname))); </span>
 <span class="fc" id="L70">        labels.add(colname);</span>
-<span class="fc" id="L71">    }</span>
+    }
 <span class="fc" id="L72">    nbligne = size;</span>
 <span class="fc" id="L73">    }</span>
  /**
@@ -95,8 +95,8 @@ public class Dataframe {
         
 <span class="fc" id="L96">        nbligne = data.get(0).getsize();</span>
      
- 
-<span class="fc" id="L99">}</span>
+<span class="fc" id="L98"> </span>
+}
 /**
  * affiche le dataframe entre debut et fin 
  * @param debut la ligne ou comlmence laffichage 
@@ -135,8 +135,8 @@ protected void afficherdev(int debut, int fin) throws BadArgumentException{
  * @throws BadArgumentException
  */
 public void afficherDebut(int nbline) throws BadArgumentException {
-<span class="pc bpc" id="L138" title="2 of 4 branches missed.">    if(nbline &lt; 0 || nbline &gt; getNbligne())</span>
-<span class="nc" id="L139">        throw new BadArgumentException(&quot;number of lines&quot;);</span>
+<span class="pc bpc" id="L138" title="1 of 4 branches missed.">    if(nbline &lt; 0 || nbline &gt; getNbligne())</span>
+<span class="fc" id="L139">        throw new BadArgumentException(&quot;errer number of colonne&quot;);</span>
 <span class="fc" id="L140">    afficherdev(0, nbline);</span>
 <span class="fc" id="L141">}</span>
 /**
@@ -145,8 +145,8 @@ public void afficherDebut(int nbline) throws BadArgumentException {
  * @throws BadArgumentException
  */
 public void afficherFin(int nbline) throws BadArgumentException {
-<span class="pc bpc" id="L148" title="2 of 4 branches missed.">    if(nbline &lt; 0 || nbline &gt; getNbligne())</span>
-<span class="nc" id="L149">        throw new BadArgumentException(&quot;number of lines&quot;);</span>
+<span class="pc bpc" id="L148" title="1 of 4 branches missed.">    if(nbline &lt; 0 || nbline &gt; getNbligne())</span>
+<span class="fc" id="L149">        throw new BadArgumentException(&quot;number of lines&quot;);</span>
 <span class="fc" id="L150">   afficherdev(getNbligne()-nbline,getNbligne());</span>
 <span class="fc" id="L151">}</span>
 /**
@@ -181,14 +181,14 @@ public Dataframe selectLigne(int debut ,int fin ){
  * @return un nouveau dataframe qui contiens les colonne selectioner a partir des labels passer en parametre  
  */
 public Dataframe selectCol(ArrayList&lt;String&gt; l){
-<span class="nc" id="L184">    Dataframe dataframe = new Dataframe();</span>
-<span class="nc bnc" id="L185" title="All 2 branches missed.">    for(String label : l){</span>
-<span class="nc" id="L186">        col col = this.getcol(label);</span>
-<span class="nc" id="L187">        dataframe.insertCol(col);</span>
-<span class="nc" id="L188">    }</span>
-<span class="nc" id="L189">    dataframe.nbligne = dataframe.data.get(0).getsize();</span>
+<span class="fc" id="L184">    Dataframe dataframe = new Dataframe();</span>
+<span class="fc bfc" id="L185" title="All 2 branches covered.">    for(String label : l){</span>
+<span class="fc" id="L186">        col col = this.getcol(label);</span>
+<span class="fc" id="L187">        dataframe.insertCol(col);</span>
+    }
+<span class="fc" id="L189">    dataframe.nbligne = dataframe.data.get(0).getsize();</span>
 
-<span class="nc" id="L191">return dataframe;</span>
+<span class="fc" id="L191">return dataframe;</span>
 }
 
 /**

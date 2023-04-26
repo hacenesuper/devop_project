@@ -136,7 +136,7 @@ protected void afficherdev(int debut, int fin) throws BadArgumentException{
  */
 public void afficherDebut(int nbline) throws BadArgumentException {
     if(nbline < 0 || nbline > getNbligne())
-        throw new BadArgumentException("number of lines");
+        throw new BadArgumentException("errer number of colonne");
     afficherdev(0, nbline);
 }
 /**

@@ -178,15 +178,26 @@ public class DataframeTest {
         students.afficherdev(0,88);
     }
     @Test 
-    public void testHead() throws Exception {
+    public void testafficherDebut() throws Exception {
         students.afficherDebut(1); 
     }
     
 
     @Test
-    public void testTail() throws Exception {
+    public void testafficherFin() throws Exception {
         students.afficherFin(1); 
-    }
+    
+}
+  @Test (expected = BadArgumentException.class)
+public void testafficherDebut2() throws Exception {
+    students.afficherDebut(-100); 
+}
+
+
+@Test (expected = BadArgumentException.class)
+public void testafficherFin2() throws Exception {
+    students.afficherFin(-100); 
+}
   /*
      * test des methode min max mean sum
      */
