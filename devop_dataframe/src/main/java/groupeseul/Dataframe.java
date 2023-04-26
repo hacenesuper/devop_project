@@ -239,13 +239,34 @@ public void insertligne(String[] l) {
         labels.add(c.getLabel());
     }
 
-
+/**
+     * la methode retourne la valeur maximum parmis les valeurs d'une colonne dont le nom est donner en parametre 
+     * @param label le label de la colonne 
+     * @return le maximum des valeurs present dans la colonne 
+     * @throws BadArgumentException colone ne contien pas de valeur numeric"
+     */
+    public double max(String label) throws BadArgumentException {
+        col c =getcol(label);
+        Double res;
+        if( c.isnumeric()){
+            double max = Float.MIN_VALUE;
+            for(int i=0; i<c.getValues().size(); i++)
+                if (max < Float.parseFloat(c.getValues().get(i).toString()))
+                  max = Float.parseFloat( c.getValues().get(i).toString() );
+           
+            res = Math.round(max* 100.0) / 100.0;
+            return res;
+        }
+       else
+            throw new BadArgumentException("colone ne contien pas de valeur numeric");
+    }
     /**
      * la methode retourne la somme des valeurs dune colonne dont le nom est donner en parametre 
      * @param label le label de la colonne 
      * @return la somme des valeurs present dans la colonne 
+     * @throws BadArgumentException colone ne contien pas de valeur numeric"
      */
-    public double sum(String label) {
+    public double sum(String label) throws BadArgumentException {
       col c =getcol(label);
       if( c.isnumeric()){
         double sum = 0;
@@ -253,14 +274,16 @@ public void insertligne(String[] l) {
                 sum += Double.parseDouble( c.getValues().get(i).toString() );
     double res = Math.round(sum* 100.0) / 100.0;
     return res;
-    }else {return 0;}
+    }else 
+        throw new BadArgumentException("colone ne contien pas de valeur numeric");
     }
     /**
      * la methode retourne la valeur minimum parmis les valeurs d'une colonne dont le nom est donner en parametre 
      * @param label le label de la colonne 
      * @return le minimum des valeurs present dans la colonne 
+     * @throws BadArgumentException colone ne contien pas de valeur numeric"
      */
-    public double min(String label) {
+    public double min(String label) throws BadArgumentException {
         col c =getcol(label);
         if( c.isnumeric() ){
             double min = Float.MAX_VALUE;
@@ -272,33 +295,16 @@ public void insertligne(String[] l) {
             return res;
         }
         else
-            return 0; 
+        throw new BadArgumentException("colone ne contien pas de valeur numeric"); 
       }
-    /**
-     * la methode retourne la valeur maximum parmis les valeurs d'une colonne dont le nom est donner en parametre 
-     * @param label le label de la colonne 
-     * @return le maximum des valeurs present dans la colonne 
-     */
-    public double max(String label) {
-        col c =getcol(label);
-        if( c.isnumeric()){
-            double max = Float.MIN_VALUE;
-            for(int i=0; i<c.getValues().size(); i++)
-                if (max < Float.parseFloat(c.getValues().get(i).toString()))
-                  max = Float.parseFloat( c.getValues().get(i).toString() );
-           
-            double res = Math.round(max* 100.0) / 100.0;
-            return res;
-        }
-        else
-            return 0; 
-    }
+    
     /**
      * la methode retourne la moyenne des  valeurs numeric d'une colonne dont le nom est donner en parametre 
      * @param label le label de la colonne 
      * @return la moyenne des valeurs present dans la colonne 
+     * @throws BadArgumentException colone ne contien pas de valeur numeric"
      */
-    public double mean(String label) {
+    public double mean(String label) throws BadArgumentException {
         col c =getcol(label);
         if( c.isnumeric()){
             double sum = 0;
@@ -309,6 +315,6 @@ public void insertligne(String[] l) {
             return res;
         }
         else
-            return 0;
+        throw new BadArgumentException("colone ne contien pas de valeur numeric");
     }
 }

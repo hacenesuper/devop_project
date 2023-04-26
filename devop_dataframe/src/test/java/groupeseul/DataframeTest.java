@@ -159,16 +159,23 @@ public class DataframeTest {
      * test affichage 
      */
     @Test
-    public void testFetchAll() throws Exception {
+    public void testafficher() throws Exception {
         students.afficher();
     }
 
     @Test
-    public void testFetchFromTo() throws Exception {
+    public void testafficherdev() throws Exception {
         students.afficherdev(0,students.getNbligne());
     }
     
-
+    @Test (expected = BadArgumentException.class)
+    public void testafficherdev2() throws Exception {
+        students.afficherdev(-20,students.getNbligne());
+    }
+    @Test (expected = BadArgumentException.class)
+    public void testafficherdev3() throws Exception {
+        students.afficherdev(0,88);
+    }
     @Test 
     public void testHead() throws Exception {
         students.afficherDebut(1); 
@@ -182,6 +189,10 @@ public class DataframeTest {
   /*
      * test des methode min max mean sum
      */
+    public void testMax() throws Exception {
+        assertEquals(89,oscars.max("Index"),0.01);
+        assertEquals(15.15,students.max("moyenne"),0.01);
+    }
     @Test
     public void testSum() throws Exception {
         assertEquals(4005, oscars.sum("Index"),0.01);
@@ -193,14 +204,33 @@ public class DataframeTest {
         assertEquals(1,oscars.min("Index"),0.01);
         assertEquals(9.45,students.min("moyenne"),0.01);
     }
-    public void testMax() throws Exception {
-        assertEquals(89,oscars.max("Index"),0.01);
-        assertEquals(15.15,students.max("moyenne"),0.01);
-    }
+    
     @Test
     public void testMean() throws Exception {
-        assertEquals(45,oscars.mean("Index"),0.01);
+       
         assertEquals(12.43,students.mean("moyenne"),0.01);
+    }
+    @Test (expected = BadArgumentException.class)
+    public void testMax2() throws Exception {
+       
+        students.sum("prenom");
+    }
+    @Test (expected = BadArgumentException.class)
+    public void testSum2() throws Exception {
+      
+        students.sum("prenom");
+    }
+    
+    @Test (expected = BadArgumentException.class)
+    public void testMin2() throws Exception {
+     
+        students.sum("prenom");
+    }
+    
+    @Test (expected = BadArgumentException.class)
+    public void testMean2() throws Exception {
+      
+        students.sum("prenom");
     }
     
    
