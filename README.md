@@ -10,7 +10,7 @@
 
 ## Préambule
 Les Dataframes sont des tableaux en deux dimensions où chaque colonne est identifiée par un label et chaque ligne par un index. Chaque colonne stocke des données d’un seul type. Cependant deux colonnes différentes peuvent stocker des types différents.  
-Pandas est une des bibliotèques les plus populaires (pour langage Python). Elle permet de traiter de grandes quantités de données simplement et efficacement (plus d'informations sur https://pandas.pydata.org).   
+Pandas est une des bibliotèques les plus populaires (pour langage Python). 
 L’objectif de ce projet est d'implémenter une sous-partie des fonctionnalitées offertes par Pandas en Java.
 
 ## Documentation : Javadoc
@@ -19,6 +19,7 @@ La documentation java de cette bibliothèque peut etre génerée en executant  �
 mvn javadoc:javadoc
 ```
 la doc se trouvera dans le repertoire target/site/apidocs.
+
 ## outils utiliser pour devloper la bibliotheque dataframe 
   <ul><li>Github : Pour le dépot distant </li>
   <li>Maven : pour automatiser les tâches de compilation, tests unitaires et déploiement des applications qui composent le projet </li>
@@ -27,8 +28,9 @@ la doc se trouvera dans le repertoire target/site/apidocs.
   <li>Docker hub : pour stocker les images de manière automatique à chaque fois qu'on fait un push dans la branche main </li>
   <li>GITWORKFLOW :  Pour l'integration continue </li>
   <li>OpenCSV  :  Pour simplifier la lecture des fichiers csv (plus d'info sur http://opencsv.sourceforge.net) </li>
+  <li>github package :deployer notre bibliotheque </li>
   <li>Asciitable: Pour afficher proprement le dataframe sous forme de tableau (plus d'infos sur https://github.com/vdmeer/asciitable) </li></ul>
-<li>CodeFactor  </li>
+<li>CodeFactor : qualité du code </li>
 
 ## Fonctionnalités de la bibliotheque 
 ## Création du dataframe
@@ -76,3 +78,4 @@ Pour lancer le main de demonstration, executer ensuite  :
 $ mvn exec:java -Dexec.args="src/main/test/ressources/test.csv"
 ```
 ## FeedBack
+jai du faire le tp seul car jai pas pu trouver de groupe avec qui travailler , je trouve ca regretable ,mais cela ma permis de faire plus et de comprendre plus je presume , jai essayer de faire avec travic ci pour lintegration continue mais ca voulais pas marcher ,amais workflow marche tres bien (pour essayer un truc nouveau),
