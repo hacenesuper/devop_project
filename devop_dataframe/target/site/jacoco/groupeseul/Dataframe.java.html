@@ -246,9 +246,9 @@ public void insertligne(String[] l) {
      * @throws BadArgumentException colone ne contien pas de valeur numeric&quot;
      */
     public double max(String label) throws BadArgumentException {
-<span class="nc" id="L249">        col c =getcol(label);</span>
+<span class="fc" id="L249">        col c =getcol(label);</span>
         Double res;
-<span class="nc bnc" id="L251" title="All 2 branches missed.">        if( c.isnumeric()){</span>
+<span class="pc bpc" id="L251" title="1 of 2 branches missed.">        if( c.isnumeric()){</span>
 <span class="nc" id="L252">            double max = Float.MIN_VALUE;</span>
 <span class="nc bnc" id="L253" title="All 2 branches missed.">            for(int i=0; i&lt;c.getValues().size(); i++)</span>
 <span class="nc bnc" id="L254" title="All 2 branches missed.">                if (max &lt; Float.parseFloat(c.getValues().get(i).toString()))</span>
@@ -258,7 +258,7 @@ public void insertligne(String[] l) {
 <span class="nc" id="L258">            return res;</span>
         }
        else
-<span class="nc" id="L261">            throw new BadArgumentException(&quot;colone ne contien pas de valeur numeric&quot;);</span>
+<span class="fc" id="L261">            throw new BadArgumentException(&quot;colone ne contien pas de valeur numeric&quot;);</span>
     }
     /**
      * la methode retourne la somme des valeurs dune colonne dont le nom est donner en parametre 
@@ -285,7 +285,7 @@ public void insertligne(String[] l) {
      */
     public double min(String label) throws BadArgumentException {
 <span class="fc" id="L287">        col c =getcol(label);</span>
-<span class="pc bpc" id="L288" title="1 of 2 branches missed.">        if( c.isnumeric() ){</span>
+<span class="fc bfc" id="L288" title="All 2 branches covered.">        if( c.isnumeric() ){</span>
 <span class="fc" id="L289">            double min = Float.MAX_VALUE;</span>
 <span class="fc bfc" id="L290" title="All 2 branches covered.">            for(int i=0; i&lt;c.getValues().size(); i++)</span>
 <span class="fc bfc" id="L291" title="All 2 branches covered.">                if (min &gt; Float.parseFloat(c.getValues().get(i).toString()))</span>
@@ -295,7 +295,7 @@ public void insertligne(String[] l) {
 <span class="fc" id="L295">            return res;</span>
         }
         else
-<span class="nc" id="L298">        throw new BadArgumentException(&quot;colone ne contien pas de valeur numeric&quot;); </span>
+<span class="fc" id="L298">        throw new BadArgumentException(&quot;colone ne contien pas de valeur numeric&quot;); </span>
       }
     
     /**
@@ -306,7 +306,7 @@ public void insertligne(String[] l) {
      */
     public double mean(String label) throws BadArgumentException {
 <span class="fc" id="L308">        col c =getcol(label);</span>
-<span class="pc bpc" id="L309" title="1 of 2 branches missed.">        if( c.isnumeric()){</span>
+<span class="fc bfc" id="L309" title="All 2 branches covered.">        if( c.isnumeric()){</span>
 <span class="fc" id="L310">            double sum = 0;</span>
 <span class="fc bfc" id="L311" title="All 2 branches covered.">            for(int i=0; i&lt;c.getValues().size(); i++)</span>
 <span class="fc" id="L312">                    sum += Double.parseDouble( c.getValues().get(i).toString() );</span>
@@ -315,7 +315,7 @@ public void insertligne(String[] l) {
 <span class="fc" id="L315">            return res;</span>
         }
         else
-<span class="nc" id="L318">        throw new BadArgumentException(&quot;colone ne contien pas de valeur numeric&quot;);</span>
+<span class="fc" id="L318">        throw new BadArgumentException(&quot;colone ne contien pas de valeur numeric&quot;);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>
