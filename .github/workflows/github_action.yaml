@@ -67,6 +67,7 @@ jobs:
         default_author: github_actions
         message: 'commit badge'
         add: '*.svg'
+        GITHUB_TOKEN: ${{ github.token }}
 
     - name: Upload JaCoCo coverage report
       uses: actions/upload-artifact@v2
