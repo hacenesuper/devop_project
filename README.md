@@ -73,6 +73,6 @@ $ mvn package
 ```
 Pour lancer le main de demonstration, executer ensuite  :
 ```sh
-$ mvn exec:java -Dexec.args="src/main/test/ressources/oscars.csv"
+$ mvn exec:java -Dexec.args="src/main/test/ressources/test.csv"
 ```
 ## FeedBack

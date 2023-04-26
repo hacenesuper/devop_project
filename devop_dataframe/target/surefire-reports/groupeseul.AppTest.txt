@@ -1,4 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: groupeseul.AppTest
 -------------------------------------------------------------------------------
+<<<<<<< HEAD
 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec
+=======
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec
+>>>>>>> c078960162011b9013b050408563403b994ffc8a

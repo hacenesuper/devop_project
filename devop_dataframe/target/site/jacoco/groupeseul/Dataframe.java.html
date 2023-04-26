@@ -59,7 +59,11 @@ public class Dataframe {
 <span class="fc" id="L59">            throw new BadArgumentException(&quot;le dataframe a une liste null&quot;);</span>
 <span class="fc bfc" id="L60" title="All 2 branches covered.">        else if( list.size() != size)</span>
 <span class="fc" id="L61">            throw new BadArgumentException(&quot;les colonne nont pas la meme taille &quot;);</span>
+<<<<<<< HEAD
 <span class="fc" id="L62">    }     </span>
+=======
+    }     
+>>>>>>> c078960162011b9013b050408563403b994ffc8a
       
 <span class="fc" id="L64">    data = new ArrayList&lt;col&gt;();</span>
 <span class="fc" id="L65">    labels = new ArrayList&lt;String&gt;();</span>
@@ -68,7 +72,11 @@ public class Dataframe {
 <span class="fc" id="L68">        type = type.substring(type.lastIndexOf('.') + 1);</span>
 <span class="fc" id="L69">        data.add(new col(colname,type,map.get(colname))); </span>
 <span class="fc" id="L70">        labels.add(colname);</span>
+<<<<<<< HEAD
 <span class="fc" id="L71">    }</span>
+=======
+    }
+>>>>>>> c078960162011b9013b050408563403b994ffc8a
 <span class="fc" id="L72">    nbligne = size;</span>
 <span class="fc" id="L73">    }</span>
  /**
@@ -95,8 +103,13 @@ public class Dataframe {
         
 <span class="fc" id="L96">        nbligne = data.get(0).getsize();</span>
      
+<<<<<<< HEAD
  
 <span class="fc" id="L99">}</span>
+=======
+<span class="fc" id="L98"> </span>
+}
+>>>>>>> c078960162011b9013b050408563403b994ffc8a
 /**
  * affiche le dataframe entre debut et fin 
  * @param debut la ligne ou comlmence laffichage 
@@ -185,7 +198,11 @@ public Dataframe selectCol(ArrayList&lt;String&gt; l){
 <span class="nc bnc" id="L185" title="All 2 branches missed.">    for(String label : l){</span>
 <span class="nc" id="L186">        col col = this.getcol(label);</span>
 <span class="nc" id="L187">        dataframe.insertCol(col);</span>
+<<<<<<< HEAD
 <span class="nc" id="L188">    }</span>
+=======
+    }
+>>>>>>> c078960162011b9013b050408563403b994ffc8a
 <span class="nc" id="L189">    dataframe.nbligne = dataframe.data.get(0).getsize();</span>
 
 <span class="nc" id="L191">return dataframe;</span>

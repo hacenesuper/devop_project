@@ -57,13 +57,22 @@
     <property name="sun.cpu.endian" value="little"/>
     <property name="sun.stdout.encoding" value="UTF-8"/>
   </properties>
+<<<<<<< HEAD
   <testcase classname="groupeseul.colTest" name="testIsNumeric" time="0.004"/>
+=======
+  <testcase classname="groupeseul.colTest" name="testIsNumeric" time="0"/>
+>>>>>>> c078960162011b9013b050408563403b994ffc8a
   <testcase classname="groupeseul.colTest" name="testEmptyConstructor" time="0"/>
   <testcase classname="groupeseul.colTest" name="testGetlabel" time="0"/>
-  <testcase classname="groupeseul.colTest" name="testAdd" time="0"/>
-  <testcase classname="groupeseul.colTest" name="testPresent" time="0"/>
+  <testcase classname="groupeseul.colTest" name="testAdd" time="0.001"/>
+  <testcase classname="groupeseul.colTest" name="testPresent" time="0.001"/>
   <testcase classname="groupeseul.colTest" name="testGetSize" time="0"/>
   <testcase classname="groupeseul.colTest" name="testGetType" time="0"/>
+<<<<<<< HEAD
   <testcase classname="groupeseul.colTest" name="testGetValues" time="0.001"/>
   <testcase classname="groupeseul.colTest" name="testConstructor" time="0"/>
+=======
+  <testcase classname="groupeseul.colTest" name="testGetValues" time="0"/>
+  <testcase classname="groupeseul.colTest" name="testConstructor" time="0.001"/>
+>>>>>>> c078960162011b9013b050408563403b994ffc8a
 </testsuite>
