@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="25" failures="0" name="groupeseul.DataframeTest" time="0.39" errors="0" skipped="0">
+<testsuite tests="25" failures="0" name="groupeseul.DataframeTest" time="0.36" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="java.vm.version" value="11.0.18+10"/>
@@ -31,7 +31,7 @@
     <property name="java.class.version" value="55.0"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
-    <property name="os.version" value="5.15.0-1036-azure"/>
+    <property name="os.version" value="5.15.0-1035-azure"/>
     <property name="library.jansi.path" value="/usr/share/apache-maven-3.8.8/lib/jansi-native"/>
     <property name="user.home" value="/home/runner"/>
     <property name="user.timezone" value="Etc/UTC"/>
@@ -59,29 +59,29 @@
     <property name="java.vendor.version" value="Temurin-11.0.18+10"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="groupeseul.DataframeTest" name="testGetligne" time="0.074"/>
-  <testcase classname="groupeseul.DataframeTest" name="testgetnbligne" time="0.009"/>
-  <testcase classname="groupeseul.DataframeTest" name="testMax" time="0.007"/>
-  <testcase classname="groupeseul.DataframeTest" name="testMin" time="0.002"/>
-  <testcase classname="groupeseul.DataframeTest" name="testSum" time="0.002"/>
+  <testcase classname="groupeseul.DataframeTest" name="testGetligne" time="0.095"/>
+  <testcase classname="groupeseul.DataframeTest" name="testgetnbligne" time="0.003"/>
+  <testcase classname="groupeseul.DataframeTest" name="testMax" time="0.004"/>
+  <testcase classname="groupeseul.DataframeTest" name="testMin" time="0.004"/>
+  <testcase classname="groupeseul.DataframeTest" name="testSum" time="0.005"/>
   <testcase classname="groupeseul.DataframeTest" name="testMean2" time="0.003"/>
-  <testcase classname="groupeseul.DataframeTest" name="testMax2" time="0.001"/>
-  <testcase classname="groupeseul.DataframeTest" name="testMean" time="0.002"/>
-  <testcase classname="groupeseul.DataframeTest" name="testMin2" time="0.002"/>
-  <testcase classname="groupeseul.DataframeTest" name="testSum2" time="0.009"/>
-  <testcase classname="groupeseul.DataframeTest" name="testConstructor2" time="0.002"/>
-  <testcase classname="groupeseul.DataframeTest" name="testConstructor3" time="0.003"/>
-  <testcase classname="groupeseul.DataframeTest" name="testSelectioncol" time="0.006"/>
-  <testcase classname="groupeseul.DataframeTest" name="testafficherFin2" time="0.008"/>
-  <testcase classname="groupeseul.DataframeTest" name="testafficherdev2" time="0.006"/>
-  <testcase classname="groupeseul.DataframeTest" name="testafficherdev3" time="0.006"/>
-  <testcase classname="groupeseul.DataframeTest" name="testafficherFin" time="0.183"/>
-  <testcase classname="groupeseul.DataframeTest" name="testafficherdev" time="0.016"/>
-  <testcase classname="groupeseul.DataframeTest" name="testSelectionligne" time="0.002"/>
-  <testcase classname="groupeseul.DataframeTest" name="testafficher" time="0.02"/>
-  <testcase classname="groupeseul.DataframeTest" name="testGetCol" time="0.005"/>
-  <testcase classname="groupeseul.DataframeTest" name="testConstructorlistenull" time="0.004"/>
-  <testcase classname="groupeseul.DataframeTest" name="testafficherDebut" time="0.006"/>
-  <testcase classname="groupeseul.DataframeTest" name="testafficherDebut2" time="0.002"/>
-  <testcase classname="groupeseul.DataframeTest" name="testConstructor" time="0.01"/>
+  <testcase classname="groupeseul.DataframeTest" name="testMax2" time="0.003"/>
+  <testcase classname="groupeseul.DataframeTest" name="testMean" time="0.003"/>
+  <testcase classname="groupeseul.DataframeTest" name="testMin2" time="0.005"/>
+  <testcase classname="groupeseul.DataframeTest" name="testSum2" time="0.003"/>
+  <testcase classname="groupeseul.DataframeTest" name="testConstructor2" time="0.011"/>
+  <testcase classname="groupeseul.DataframeTest" name="testConstructor3" time="0.005"/>
+  <testcase classname="groupeseul.DataframeTest" name="testSelectioncol" time="0.008"/>
+  <testcase classname="groupeseul.DataframeTest" name="testafficherFin2" time="0.004"/>
+  <testcase classname="groupeseul.DataframeTest" name="testafficherdev2" time="0.009"/>
+  <testcase classname="groupeseul.DataframeTest" name="testafficherdev3" time="0.005"/>
+  <testcase classname="groupeseul.DataframeTest" name="testafficherFin" time="0.111"/>
+  <testcase classname="groupeseul.DataframeTest" name="testafficherdev" time="0.009"/>
+  <testcase classname="groupeseul.DataframeTest" name="testSelectionligne" time="0.018"/>
+  <testcase classname="groupeseul.DataframeTest" name="testafficher" time="0.023"/>
+  <testcase classname="groupeseul.DataframeTest" name="testGetCol" time="0.011"/>
+  <testcase classname="groupeseul.DataframeTest" name="testConstructorlistenull" time="0.005"/>
+  <testcase classname="groupeseul.DataframeTest" name="testafficherDebut" time="0.004"/>
+  <testcase classname="groupeseul.DataframeTest" name="testafficherDebut2" time="0.008"/>
+  <testcase classname="groupeseul.DataframeTest" name="testConstructor" time="0.001"/>
 </testsuite>
