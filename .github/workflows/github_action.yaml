@@ -7,10 +7,10 @@ on : [push, pull_request]
 permissions:
   contents: write
 jobs:
-  build:
+ build:
 
-    runs-on: ubuntu-latest
-steps: 
+  runs-on: ubuntu-latest
+  steps: 
   
   - name : checkout main from branch
     uses: actions/checkout@v2
